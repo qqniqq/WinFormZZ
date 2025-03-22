@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 namespace CaesarCipherLib
 {
     public class Class1
-    {
+    { 
+
     }
 }

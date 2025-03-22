@@ -10,11 +10,16 @@ using System.Windows.Forms;
 
 namespace CaesarCipher
 {
-    public partial class Form1: Form
+    public partial class CaesarCipher: Form
     {
-        public Form1()
+        public CaesarCipher()
         {
             InitializeComponent();
+        }
+
+        private void CaesarCipher_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
