@@ -21,5 +21,10 @@ namespace CaesarCipher
         {
 
         }
+
+        private void IblKey_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
