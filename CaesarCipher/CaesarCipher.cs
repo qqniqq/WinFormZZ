@@ -67,7 +67,7 @@ namespace CaesarCipher
 
         private void btnDecipher_Click(object sender, EventArgs e)
         {
-            if (!string.IsNullOrEmpty(txtKeyToDecrypt.Text) && !string.IsNullOrEmpty(txtTextToDecrypt.Text))
+  if (!string.IsNullOrEmpty(txtKeyToDecrypt.Text) && !string.IsNullOrEmpty(txtTextToDecrypt.Text))
             {
                 output = Cipher.Decrypt(txtTextToDecrypt.Text, int.Parse(txtKeyToDecrypt.Text));
 

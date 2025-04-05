@@ -9,6 +9,7 @@ namespace CaesarCipherTests
         [TestMethod]
         public void TestMethod1()
         {
+
         }
     }
 }

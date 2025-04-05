@@ -52,7 +52,6 @@
     <Compile Include="CaesarCipher.Designer.cs">
       <DependentUpon>CaesarCipher.cs</DependentUpon>
     </Compile>
-    <Compile Include="Cipher.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="CaesarCipher.resx">
@@ -79,6 +78,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\CaesarCipherLib\CaesarCipherLib.csproj">
+      <Project>{cee2ffbd-1a23-4728-9c29-2f0302c6d210}</Project>
+      <Name>CaesarCipherLib</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
