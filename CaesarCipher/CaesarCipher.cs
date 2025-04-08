@@ -96,5 +96,20 @@ namespace CaesarCipher
                 e.Handled = true;
             }
         }
+
+        private void buttonSave_Click(object sender, EventArgs e)
+        {
+            // Создаем диалоговое окно для выбора файла
+            SaveFileDialog saveFileDialog = new SaveFileDialog();
+            saveFileDialog.Filter = "Text files (*.txt)|*.txt|All files (*.*)|*.*";  // Устанавливаем фильтр для типов файлов
+            saveFileDialog.Title = "Сохранить зашифрованный текст";  // Заголовок окна
+
+            if (saveFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                // Получаем путь и сохраняем зашифрованный текст в выбранный файл
+                System.IO.File.WriteAllText(saveFileDialog.FileName, txtEncryptedText.Text);  // txtEncrypted - текст из TextBox с зашифрованным текстом
+                MessageBox.Show("Результат успешно сохранён!", "Готово", MessageBoxButtons.OK, MessageBoxIcon.Information);  // Уведомление
+            }
+        }
     }
 }

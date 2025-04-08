@@ -47,6 +47,7 @@
             this.lblDecrypt = new System.Windows.Forms.Label();
             this.txtKeyToDecrypt = new System.Windows.Forms.TextBox();
             this.materialLabel1 = new System.Windows.Forms.Label();
+            this.buttonSave = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage3.SuspendLayout();
             this.tabPage4.SuspendLayout();
@@ -283,6 +284,18 @@
             this.materialLabel1.TabIndex = 5;
             this.materialLabel1.Text = "Ключ :";
             // 
+            // buttonSave
+            // 
+            this.buttonSave.Font = new System.Drawing.Font("Rockwell", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonSave.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.buttonSave.Location = new System.Drawing.Point(4, 33);
+            this.buttonSave.Name = "buttonSave";
+            this.buttonSave.Size = new System.Drawing.Size(161, 27);
+            this.buttonSave.TabIndex = 9;
+            this.buttonSave.Text = "Сохранить результат";
+            this.buttonSave.UseVisualStyleBackColor = true;
+            this.buttonSave.Click += new System.EventHandler(this.buttonSave_Click);
+            // 
             // CaesarCipher
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -290,6 +303,7 @@
             this.AutoValidate = System.Windows.Forms.AutoValidate.EnablePreventFocusChange;
             this.BackColor = System.Drawing.SystemColors.Window;
             this.ClientSize = new System.Drawing.Size(572, 732);
+            this.Controls.Add(this.buttonSave);
             this.Controls.Add(this.tabControl1);
             this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
@@ -331,6 +345,7 @@
         private System.Windows.Forms.Button btnCleaerControlsDecrypt;
         private System.Windows.Forms.TextBox txtDecryptedText;
         private System.Windows.Forms.Button btnDecipher;
+        private System.Windows.Forms.Button buttonSave;
     }
 }
 
