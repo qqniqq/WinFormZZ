@@ -62,7 +62,7 @@
             this.IblKey.Name = "IblKey";
             this.IblKey.Size = new System.Drawing.Size(42, 17);
             this.IblKey.TabIndex = 0;
-            this.IblKey.Text = "Key :";
+            this.IblKey.Text = "Ключ :";
             this.IblKey.Click += new System.EventHandler(this.IblKey_Click);
             // 
             // tabControl1
@@ -92,7 +92,7 @@
             this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage3.Size = new System.Drawing.Size(421, 502);
             this.tabPage3.TabIndex = 0;
-            this.tabPage3.Text = "Encrypt";
+            this.tabPage3.Text = "Зашифровка";
             this.tabPage3.UseVisualStyleBackColor = true;
             // 
             // btnCipher
@@ -102,7 +102,7 @@
             this.btnCipher.Name = "btnCipher";
             this.btnCipher.Size = new System.Drawing.Size(185, 71);
             this.btnCipher.TabIndex = 12;
-            this.btnCipher.Text = "CIPHER";
+            this.btnCipher.Text = "Зашифровать";
             this.btnCipher.UseVisualStyleBackColor = true;
             this.btnCipher.Click += new System.EventHandler(this.btnCipher_Click);
             // 
@@ -113,7 +113,7 @@
             this.btnClearControls.Name = "btnClearControls";
             this.btnClearControls.Size = new System.Drawing.Size(182, 71);
             this.btnClearControls.TabIndex = 4;
-            this.btnClearControls.Text = "Clear Controls";
+            this.btnClearControls.Text = "Очистить ";
             this.btnClearControls.UseVisualStyleBackColor = true;
             this.btnClearControls.Click += new System.EventHandler(this.btnClearControls_Click);
             // 
@@ -133,9 +133,9 @@
             this.IblOutputText.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.IblOutputText.Location = new System.Drawing.Point(11, 238);
             this.IblOutputText.Name = "IblOutputText";
-            this.IblOutputText.Size = new System.Drawing.Size(123, 17);
+            this.IblOutputText.Size = new System.Drawing.Size(133, 17);
             this.IblOutputText.TabIndex = 0;
-            this.IblOutputText.Text = "Encrypted Text :";
+            this.IblOutputText.Text = "Зашифрованный текст :";
             // 
             // txtToEncrypt
             // 
@@ -153,9 +153,9 @@
             this.IblInitialText.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.IblInitialText.Location = new System.Drawing.Point(8, 57);
             this.IblInitialText.Name = "IblInitialText";
-            this.IblInitialText.Size = new System.Drawing.Size(123, 17);
+            this.IblInitialText.Size = new System.Drawing.Size(148, 17);
             this.IblInitialText.TabIndex = 4;
-            this.IblInitialText.Text = "Text to Encrypt :";
+            this.IblInitialText.Text = "Текст для зашифрования :";
             // 
             // txtKeyToEncrypt
             // 
@@ -179,7 +179,7 @@
             this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage4.Size = new System.Drawing.Size(421, 502);
             this.tabPage4.TabIndex = 1;
-            this.tabPage4.Text = "Decrypt";
+            this.tabPage4.Text = "Расшифровка";
             this.tabPage4.UseVisualStyleBackColor = true;
             // 
             // btnDecipher
@@ -188,7 +188,7 @@
             this.btnDecipher.Name = "btnDecipher";
             this.btnDecipher.Size = new System.Drawing.Size(185, 71);
             this.btnDecipher.TabIndex = 12;
-            this.btnDecipher.Text = "DECIPHER";
+            this.btnDecipher.Text = "Расшифровать";
             this.btnDecipher.UseVisualStyleBackColor = true;
             this.btnDecipher.Click += new System.EventHandler(this.btnDecipher_Click);
             // 
@@ -198,7 +198,7 @@
             this.btnCleaerControlsDecrypt.Name = "btnCleaerControlsDecrypt";
             this.btnCleaerControlsDecrypt.Size = new System.Drawing.Size(182, 71);
             this.btnCleaerControlsDecrypt.TabIndex = 11;
-            this.btnCleaerControlsDecrypt.Text = "CLEAR CONTROLS";
+            this.btnCleaerControlsDecrypt.Text = "Очистить";
             this.btnCleaerControlsDecrypt.UseVisualStyleBackColor = true;
             this.btnCleaerControlsDecrypt.Click += new System.EventHandler(this.btnCleaerControlsDecrypt_Click);
             // 
@@ -218,9 +218,9 @@
             this.materialLabel3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.materialLabel3.Location = new System.Drawing.Point(4, 216);
             this.materialLabel3.Name = "materialLabel3";
-            this.materialLabel3.Size = new System.Drawing.Size(125, 17);
+            this.materialLabel3.Size = new System.Drawing.Size(139, 17);
             this.materialLabel3.TabIndex = 7;
-            this.materialLabel3.Text = "Decrypted Text :";
+            this.materialLabel3.Text = "Расшифрованный текст :";
             // 
             // txtTextToDecrypt
             // 
@@ -238,9 +238,9 @@
             this.lblDecrypt.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.lblDecrypt.Location = new System.Drawing.Point(8, 37);
             this.lblDecrypt.Name = "lblDecrypt";
-            this.lblDecrypt.Size = new System.Drawing.Size(129, 17);
+            this.lblDecrypt.Size = new System.Drawing.Size(142, 17);
             this.lblDecrypt.TabIndex = 6;
-            this.lblDecrypt.Text = "Text to  Decrypt :";
+            this.lblDecrypt.Text = "Текст для расшифровки :";
             // 
             // txtKeyToDecrypt
             // 
@@ -259,7 +259,7 @@
             this.materialLabel1.Name = "materialLabel1";
             this.materialLabel1.Size = new System.Drawing.Size(42, 17);
             this.materialLabel1.TabIndex = 5;
-            this.materialLabel1.Text = "Key :";
+            this.materialLabel1.Text = "Ключ :";
             // 
             // CaesarCipher
             // 
