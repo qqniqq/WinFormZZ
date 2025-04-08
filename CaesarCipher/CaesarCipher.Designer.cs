@@ -268,6 +268,7 @@
             this.txtKeyToDecrypt.Name = "txtKeyToDecrypt";
             this.txtKeyToDecrypt.Size = new System.Drawing.Size(448, 22);
             this.txtKeyToDecrypt.TabIndex = 8;
+            this.txtKeyToDecrypt.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtKeyToDecrypt_KeyPress);
             // 
             // materialLabel1
             // 
