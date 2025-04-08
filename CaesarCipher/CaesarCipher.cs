@@ -67,11 +67,19 @@ namespace CaesarCipher
 
         private void btnDecipher_Click(object sender, EventArgs e)
         {
-  if (!string.IsNullOrEmpty(txtKeyToDecrypt.Text) && !string.IsNullOrEmpty(txtTextToDecrypt.Text))
+            if (!string.IsNullOrEmpty(txtKeyToEncrypt.Text) && !string.IsNullOrEmpty(txtTextToDecrypt.Text))
             {
-                output = Cipher.Decrypt(txtTextToDecrypt.Text, int.Parse(txtKeyToDecrypt.Text));
+                int key;
+                if (int.TryParse(txtKeyToEncrypt.Text, out key))  
+                {
+                    output = Cipher.Decrypt(txtTextToDecrypt.Text, key);
 
-                txtDecryptedText.Text = output;
+                    txtDecryptedText.Text = output;
+                }
+                else
+                {
+                    MessageBox.Show("Введите корректный ключ для расшифровки.", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
         }
 
