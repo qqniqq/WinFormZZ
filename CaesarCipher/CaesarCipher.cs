@@ -111,5 +111,50 @@ namespace CaesarCipher
                 MessageBox.Show("Результат успешно сохранён!", "Готово", MessageBoxButtons.OK, MessageBoxIcon.Information);  // Уведомление
             }
         }
+
+        private void materialLabel3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblDecrypt_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void buttonLoadForDecryption_Click(object sender, EventArgs e)
+        {
+            // Создаем диалог для открытия файла
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+            openFileDialog.Filter = "Text files (*.txt)|*.txt|All files (*.*)|*.*"; // Фильтры для выбора текстовых файлов
+            openFileDialog.Title = "Выберите файл для расшифровки"; // Заголовок окна
+
+            // Проверяем, выбрал ли пользователь файл
+            if (openFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                // Читаем содержимое выбранного файла
+                string encryptedText = System.IO.File.ReadAllText(openFileDialog.FileName);
+
+                // Получаем ключ для расшифровки (предполагаем, что он введен в TextBox)
+                int key;
+                if (int.TryParse(txtKeyToEncrypt.Text, out key)) // Преобразуем введённый ключ в число
+                {
+                    // Расшифровываем текст с использованием ключа
+                    string decryptedText = Cipher.Decrypt(encryptedText, key);  // Используем метод расшифровки из  класса Cipher
+
+                    // Выводим расшифрованный текст в TextBox
+                    txtDecryptedText.Text = decryptedText; // txtDecrypted - TextBox, куда выводится результат
+                }
+                else
+                {
+                    MessageBox.Show("Пожалуйста, введите правильный ключ для расшифровки.", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+        }
     }
 }

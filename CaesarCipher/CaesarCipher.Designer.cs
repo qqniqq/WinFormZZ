@@ -31,6 +31,7 @@
             this.IblKey = new System.Windows.Forms.Label();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.buttonSave = new System.Windows.Forms.Button();
             this.btnCipher = new System.Windows.Forms.Button();
             this.btnClearControls = new System.Windows.Forms.Button();
             this.txtEncryptedText = new System.Windows.Forms.TextBox();
@@ -47,7 +48,7 @@
             this.lblDecrypt = new System.Windows.Forms.Label();
             this.txtKeyToDecrypt = new System.Windows.Forms.TextBox();
             this.materialLabel1 = new System.Windows.Forms.Label();
-            this.buttonSave = new System.Windows.Forms.Button();
+            this.buttonLoadForDecryption = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage3.SuspendLayout();
             this.tabPage4.SuspendLayout();
@@ -59,7 +60,7 @@
             this.IblKey.BackColor = System.Drawing.SystemColors.Window;
             this.IblKey.Font = new System.Drawing.Font("Rockwell", 11F);
             this.IblKey.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.IblKey.Location = new System.Drawing.Point(8, 21);
+            this.IblKey.Location = new System.Drawing.Point(17, 109);
             this.IblKey.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.IblKey.Name = "IblKey";
             this.IblKey.Size = new System.Drawing.Size(59, 21);
@@ -73,15 +74,16 @@
             this.tabControl1.Controls.Add(this.tabPage4);
             this.tabControl1.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.tabControl1.ItemSize = new System.Drawing.Size(48, 18);
-            this.tabControl1.Location = new System.Drawing.Point(0, 82);
+            this.tabControl1.Location = new System.Drawing.Point(0, 63);
             this.tabControl1.Margin = new System.Windows.Forms.Padding(4);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(572, 650);
+            this.tabControl1.Size = new System.Drawing.Size(572, 669);
             this.tabControl1.TabIndex = 8;
             // 
             // tabPage3
             // 
+            this.tabPage3.Controls.Add(this.buttonSave);
             this.tabPage3.Controls.Add(this.btnCipher);
             this.tabPage3.Controls.Add(this.btnClearControls);
             this.tabPage3.Controls.Add(this.txtEncryptedText);
@@ -94,10 +96,22 @@
             this.tabPage3.Margin = new System.Windows.Forms.Padding(4);
             this.tabPage3.Name = "tabPage3";
             this.tabPage3.Padding = new System.Windows.Forms.Padding(4);
-            this.tabPage3.Size = new System.Drawing.Size(564, 624);
+            this.tabPage3.Size = new System.Drawing.Size(564, 643);
             this.tabPage3.TabIndex = 0;
             this.tabPage3.Text = "Зашифровка";
             this.tabPage3.UseVisualStyleBackColor = true;
+            // 
+            // buttonSave
+            // 
+            this.buttonSave.Font = new System.Drawing.Font("Rockwell", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonSave.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.buttonSave.Location = new System.Drawing.Point(15, 36);
+            this.buttonSave.Name = "buttonSave";
+            this.buttonSave.Size = new System.Drawing.Size(161, 27);
+            this.buttonSave.TabIndex = 9;
+            this.buttonSave.Text = "Сохранить результат";
+            this.buttonSave.UseVisualStyleBackColor = true;
+            this.buttonSave.Click += new System.EventHandler(this.buttonSave_Click);
             // 
             // btnCipher
             // 
@@ -125,11 +139,11 @@
             // 
             // txtEncryptedText
             // 
-            this.txtEncryptedText.Location = new System.Drawing.Point(12, 319);
+            this.txtEncryptedText.Location = new System.Drawing.Point(13, 358);
             this.txtEncryptedText.Margin = new System.Windows.Forms.Padding(4);
             this.txtEncryptedText.Multiline = true;
             this.txtEncryptedText.Name = "txtEncryptedText";
-            this.txtEncryptedText.Size = new System.Drawing.Size(512, 201);
+            this.txtEncryptedText.Size = new System.Drawing.Size(517, 154);
             this.txtEncryptedText.TabIndex = 3;
             // 
             // IblOutputText
@@ -138,7 +152,7 @@
             this.IblOutputText.BackColor = System.Drawing.SystemColors.Window;
             this.IblOutputText.Font = new System.Drawing.Font("Rockwell", 11F);
             this.IblOutputText.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.IblOutputText.Location = new System.Drawing.Point(15, 293);
+            this.IblOutputText.Location = new System.Drawing.Point(17, 333);
             this.IblOutputText.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.IblOutputText.Name = "IblOutputText";
             this.IblOutputText.Size = new System.Drawing.Size(182, 21);
@@ -147,12 +161,12 @@
             // 
             // txtToEncrypt
             // 
-            this.txtToEncrypt.Location = new System.Drawing.Point(12, 95);
+            this.txtToEncrypt.Location = new System.Drawing.Point(15, 166);
             this.txtToEncrypt.Margin = new System.Windows.Forms.Padding(4);
             this.txtToEncrypt.Multiline = true;
             this.txtToEncrypt.Name = "txtToEncrypt";
-            this.txtToEncrypt.Size = new System.Drawing.Size(512, 189);
-            this.txtToEncrypt.TabIndex = 3;
+            this.txtToEncrypt.Size = new System.Drawing.Size(517, 154);
+            this.txtToEncrypt.TabIndex = 10;
             // 
             // IblInitialText
             // 
@@ -160,7 +174,7 @@
             this.IblInitialText.BackColor = System.Drawing.SystemColors.Window;
             this.IblInitialText.Font = new System.Drawing.Font("Rockwell", 11F);
             this.IblInitialText.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.IblInitialText.Location = new System.Drawing.Point(11, 70);
+            this.IblInitialText.Location = new System.Drawing.Point(17, 141);
             this.IblInitialText.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.IblInitialText.Name = "IblInitialText";
             this.IblInitialText.Size = new System.Drawing.Size(202, 21);
@@ -169,7 +183,7 @@
             // 
             // txtKeyToEncrypt
             // 
-            this.txtKeyToEncrypt.Location = new System.Drawing.Point(72, 21);
+            this.txtKeyToEncrypt.Location = new System.Drawing.Point(84, 108);
             this.txtKeyToEncrypt.Margin = new System.Windows.Forms.Padding(4);
             this.txtKeyToEncrypt.Name = "txtKeyToEncrypt";
             this.txtKeyToEncrypt.Size = new System.Drawing.Size(448, 22);
@@ -179,6 +193,7 @@
             // 
             // tabPage4
             // 
+            this.tabPage4.Controls.Add(this.buttonLoadForDecryption);
             this.tabPage4.Controls.Add(this.btnDecipher);
             this.tabPage4.Controls.Add(this.btnCleaerControlsDecrypt);
             this.tabPage4.Controls.Add(this.txtDecryptedText);
@@ -191,7 +206,7 @@
             this.tabPage4.Margin = new System.Windows.Forms.Padding(4);
             this.tabPage4.Name = "tabPage4";
             this.tabPage4.Padding = new System.Windows.Forms.Padding(4);
-            this.tabPage4.Size = new System.Drawing.Size(564, 624);
+            this.tabPage4.Size = new System.Drawing.Size(564, 643);
             this.tabPage4.TabIndex = 1;
             this.tabPage4.Text = "Расшифровка";
             this.tabPage4.UseVisualStyleBackColor = true;
@@ -220,11 +235,11 @@
             // 
             // txtDecryptedText
             // 
-            this.txtDecryptedText.Location = new System.Drawing.Point(11, 293);
+            this.txtDecryptedText.Location = new System.Drawing.Point(13, 358);
             this.txtDecryptedText.Margin = new System.Windows.Forms.Padding(4);
             this.txtDecryptedText.Multiline = true;
             this.txtDecryptedText.Name = "txtDecryptedText";
-            this.txtDecryptedText.Size = new System.Drawing.Size(517, 189);
+            this.txtDecryptedText.Size = new System.Drawing.Size(517, 154);
             this.txtDecryptedText.TabIndex = 9;
             // 
             // materialLabel3
@@ -233,20 +248,21 @@
             this.materialLabel3.BackColor = System.Drawing.SystemColors.Window;
             this.materialLabel3.Font = new System.Drawing.Font("Rockwell", 11F);
             this.materialLabel3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialLabel3.Location = new System.Drawing.Point(5, 266);
+            this.materialLabel3.Location = new System.Drawing.Point(15, 333);
             this.materialLabel3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.materialLabel3.Name = "materialLabel3";
             this.materialLabel3.Size = new System.Drawing.Size(190, 21);
             this.materialLabel3.TabIndex = 7;
             this.materialLabel3.Text = "Расшифрованный текст :";
+            this.materialLabel3.Click += new System.EventHandler(this.materialLabel3_Click);
             // 
             // txtTextToDecrypt
             // 
-            this.txtTextToDecrypt.Location = new System.Drawing.Point(11, 73);
+            this.txtTextToDecrypt.Location = new System.Drawing.Point(15, 166);
             this.txtTextToDecrypt.Margin = new System.Windows.Forms.Padding(4);
             this.txtTextToDecrypt.Multiline = true;
             this.txtTextToDecrypt.Name = "txtTextToDecrypt";
-            this.txtTextToDecrypt.Size = new System.Drawing.Size(517, 189);
+            this.txtTextToDecrypt.Size = new System.Drawing.Size(517, 154);
             this.txtTextToDecrypt.TabIndex = 10;
             // 
             // lblDecrypt
@@ -255,16 +271,17 @@
             this.lblDecrypt.BackColor = System.Drawing.SystemColors.Window;
             this.lblDecrypt.Font = new System.Drawing.Font("Rockwell", 11F);
             this.lblDecrypt.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.lblDecrypt.Location = new System.Drawing.Point(11, 46);
+            this.lblDecrypt.Location = new System.Drawing.Point(15, 141);
             this.lblDecrypt.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblDecrypt.Name = "lblDecrypt";
             this.lblDecrypt.Size = new System.Drawing.Size(194, 21);
             this.lblDecrypt.TabIndex = 6;
             this.lblDecrypt.Text = "Текст для расшифровки :";
+            this.lblDecrypt.Click += new System.EventHandler(this.lblDecrypt_Click);
             // 
             // txtKeyToDecrypt
             // 
-            this.txtKeyToDecrypt.Location = new System.Drawing.Point(80, 7);
+            this.txtKeyToDecrypt.Location = new System.Drawing.Point(84, 108);
             this.txtKeyToDecrypt.Margin = new System.Windows.Forms.Padding(4);
             this.txtKeyToDecrypt.Name = "txtKeyToDecrypt";
             this.txtKeyToDecrypt.Size = new System.Drawing.Size(448, 22);
@@ -277,24 +294,23 @@
             this.materialLabel1.BackColor = System.Drawing.SystemColors.Window;
             this.materialLabel1.Font = new System.Drawing.Font("Rockwell", 11F);
             this.materialLabel1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialLabel1.Location = new System.Drawing.Point(11, 9);
+            this.materialLabel1.Location = new System.Drawing.Point(15, 109);
             this.materialLabel1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.materialLabel1.Name = "materialLabel1";
             this.materialLabel1.Size = new System.Drawing.Size(59, 21);
             this.materialLabel1.TabIndex = 5;
             this.materialLabel1.Text = "Ключ :";
             // 
-            // buttonSave
+            // buttonLoadForDecryption
             // 
-            this.buttonSave.Font = new System.Drawing.Font("Rockwell", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonSave.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.buttonSave.Location = new System.Drawing.Point(4, 33);
-            this.buttonSave.Name = "buttonSave";
-            this.buttonSave.Size = new System.Drawing.Size(161, 27);
-            this.buttonSave.TabIndex = 9;
-            this.buttonSave.Text = "Сохранить результат";
-            this.buttonSave.UseVisualStyleBackColor = true;
-            this.buttonSave.Click += new System.EventHandler(this.buttonSave_Click);
+            this.buttonLoadForDecryption.Font = new System.Drawing.Font("Rockwell", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonLoadForDecryption.Location = new System.Drawing.Point(13, 30);
+            this.buttonLoadForDecryption.Name = "buttonLoadForDecryption";
+            this.buttonLoadForDecryption.Size = new System.Drawing.Size(382, 27);
+            this.buttonLoadForDecryption.TabIndex = 14;
+            this.buttonLoadForDecryption.Text = "Загрузить сохраненный текст для расшифровки";
+            this.buttonLoadForDecryption.UseVisualStyleBackColor = true;
+            this.buttonLoadForDecryption.Click += new System.EventHandler(this.buttonLoadForDecryption_Click);
             // 
             // CaesarCipher
             // 
@@ -303,7 +319,6 @@
             this.AutoValidate = System.Windows.Forms.AutoValidate.EnablePreventFocusChange;
             this.BackColor = System.Drawing.SystemColors.Window;
             this.ClientSize = new System.Drawing.Size(572, 732);
-            this.Controls.Add(this.buttonSave);
             this.Controls.Add(this.tabControl1);
             this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
@@ -346,6 +361,7 @@
         private System.Windows.Forms.TextBox txtDecryptedText;
         private System.Windows.Forms.Button btnDecipher;
         private System.Windows.Forms.Button buttonSave;
+        private System.Windows.Forms.Button buttonLoadForDecryption;
     }
 }
 
