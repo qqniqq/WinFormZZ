@@ -40,6 +40,8 @@
             this.IblInitialText = new System.Windows.Forms.Label();
             this.txtKeyToEncrypt = new System.Windows.Forms.TextBox();
             this.tabPage4 = new System.Windows.Forms.TabPage();
+            this.btnUsePrevious = new System.Windows.Forms.Button();
+            this.buttonLoadForDecryption = new System.Windows.Forms.Button();
             this.btnDecipher = new System.Windows.Forms.Button();
             this.btnCleaerControlsDecrypt = new System.Windows.Forms.Button();
             this.txtDecryptedText = new System.Windows.Forms.TextBox();
@@ -48,7 +50,6 @@
             this.lblDecrypt = new System.Windows.Forms.Label();
             this.txtKeyToDecrypt = new System.Windows.Forms.TextBox();
             this.materialLabel1 = new System.Windows.Forms.Label();
-            this.buttonLoadForDecryption = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage3.SuspendLayout();
             this.tabPage4.SuspendLayout();
@@ -193,6 +194,7 @@
             // 
             // tabPage4
             // 
+            this.tabPage4.Controls.Add(this.btnUsePrevious);
             this.tabPage4.Controls.Add(this.buttonLoadForDecryption);
             this.tabPage4.Controls.Add(this.btnDecipher);
             this.tabPage4.Controls.Add(this.btnCleaerControlsDecrypt);
@@ -210,6 +212,27 @@
             this.tabPage4.TabIndex = 1;
             this.tabPage4.Text = "Расшифровка";
             this.tabPage4.UseVisualStyleBackColor = true;
+            // 
+            // btnUsePrevious
+            // 
+            this.btnUsePrevious.Location = new System.Drawing.Point(13, 64);
+            this.btnUsePrevious.Name = "btnUsePrevious";
+            this.btnUsePrevious.Size = new System.Drawing.Size(382, 27);
+            this.btnUsePrevious.TabIndex = 15;
+            this.btnUsePrevious.Text = "Расшифровать предыдущий зашифрованный текст?";
+            this.btnUsePrevious.UseVisualStyleBackColor = true;
+            this.btnUsePrevious.Click += new System.EventHandler(this.btnUsePrevious_Click);
+            // 
+            // buttonLoadForDecryption
+            // 
+            this.buttonLoadForDecryption.Font = new System.Drawing.Font("Rockwell", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonLoadForDecryption.Location = new System.Drawing.Point(13, 30);
+            this.buttonLoadForDecryption.Name = "buttonLoadForDecryption";
+            this.buttonLoadForDecryption.Size = new System.Drawing.Size(382, 27);
+            this.buttonLoadForDecryption.TabIndex = 14;
+            this.buttonLoadForDecryption.Text = "Загрузить сохраненный текст для расшифровки";
+            this.buttonLoadForDecryption.UseVisualStyleBackColor = true;
+            this.buttonLoadForDecryption.Click += new System.EventHandler(this.buttonLoadForDecryption_Click);
             // 
             // btnDecipher
             // 
@@ -301,17 +324,6 @@
             this.materialLabel1.TabIndex = 5;
             this.materialLabel1.Text = "Ключ :";
             // 
-            // buttonLoadForDecryption
-            // 
-            this.buttonLoadForDecryption.Font = new System.Drawing.Font("Rockwell", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonLoadForDecryption.Location = new System.Drawing.Point(13, 30);
-            this.buttonLoadForDecryption.Name = "buttonLoadForDecryption";
-            this.buttonLoadForDecryption.Size = new System.Drawing.Size(382, 27);
-            this.buttonLoadForDecryption.TabIndex = 14;
-            this.buttonLoadForDecryption.Text = "Загрузить сохраненный текст для расшифровки";
-            this.buttonLoadForDecryption.UseVisualStyleBackColor = true;
-            this.buttonLoadForDecryption.Click += new System.EventHandler(this.buttonLoadForDecryption_Click);
-            // 
             // CaesarCipher
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -362,6 +374,7 @@
         private System.Windows.Forms.Button btnDecipher;
         private System.Windows.Forms.Button buttonSave;
         private System.Windows.Forms.Button buttonLoadForDecryption;
+        private System.Windows.Forms.Button btnUsePrevious;
     }
 }
 
