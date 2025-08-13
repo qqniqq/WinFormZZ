@@ -59,11 +59,13 @@ namespace CaesarCipher
         {
             if (!string.IsNullOrEmpty(txtKeyToEncrypt.Text) && !string.IsNullOrEmpty(txtToEncrypt.Text))
             {
-                output = Cipher.Encrypt(txtToEncrypt.Text, int.Parse(txtKeyToEncrypt.Text));
+                int key = int.Parse(txtKeyToEncrypt.Text);
+                output = Cipher.Encrypt(txtToEncrypt.Text, key);
 
                 txtEncryptedText.Text = output;
 
                 AppData.LastEncryptedText = output;
+                AppData.LastKey = key; // сохраняем ключ
             }
         }
 
@@ -176,17 +178,10 @@ namespace CaesarCipher
             }
 
             txtTextToDecrypt.Text = AppData.LastEncryptedText;
+            txtKeyToDecrypt.Text = AppData.LastKey.ToString();
 
-            int key;
-            if (int.TryParse(txtKeyToDecrypt.Text, out key))
-            {
-                string decrypted = Cipher.Decrypt(AppData.LastEncryptedText, key);
-                txtDecryptedText.Text = decrypted;
-            }
-            else
-            {
-                MessageBox.Show("Введите корректный ключ для расшифровки!", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
+            string decrypted = Cipher.Decrypt(AppData.LastEncryptedText, AppData.LastKey);
+            txtDecryptedText.Text = decrypted;
         }
     }
 }

@@ -9,5 +9,6 @@ namespace CaesarCipher
     public static class AppData
     {
         public static string LastEncryptedText { get; set; }
+        public static int LastKey { get; set; }
     }
 }
