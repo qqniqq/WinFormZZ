@@ -55,36 +55,47 @@ namespace CaesarCipher
             ClearControlsDecrypt();
         }
 
+        //универс фунцкции
+        private bool TryGetKey(TextBox textBox, out int key)
+        {
+            if (int.TryParse(textBox.Text, out key))
+                return true;
+
+            MessageBox.Show("Введите корректный ключ!", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            return false;
+        }
+
+        private void EncryptAndShow(TextBox sourceText, TextBox keyText, TextBox outputText)
+        {
+            if (string.IsNullOrWhiteSpace(sourceText.Text)) return;
+            if (!TryGetKey(keyText, out var key)) return;
+
+            output = Cipher.Encrypt(sourceText.Text, key);
+            outputText.Text = output;
+
+            // Сохраняем в AppData для расшифровки
+            AppData.LastEncryptedText = output;
+            AppData.LastKey = key;
+        }
+
+        private void DecryptAndShow(TextBox sourceText, TextBox keyText, TextBox outputText)
+        {
+            if (string.IsNullOrWhiteSpace(sourceText.Text)) return;
+            if (!TryGetKey(keyText, out var key)) return;
+
+            output = Cipher.Decrypt(sourceText.Text, key);
+            outputText.Text = output;
+        }
+
+
         private void btnCipher_Click(object sender, EventArgs e)
         {
-            if (!string.IsNullOrEmpty(txtKeyToEncrypt.Text) && !string.IsNullOrEmpty(txtToEncrypt.Text))
-            {
-                int key = int.Parse(txtKeyToEncrypt.Text);
-                output = Cipher.Encrypt(txtToEncrypt.Text, key);
-
-                txtEncryptedText.Text = output;
-
-                AppData.LastEncryptedText = output;
-                AppData.LastKey = key; // сохраняем ключ
-            }
+            EncryptAndShow(txtToEncrypt, txtKeyToEncrypt, txtEncryptedText);
         }
 
         private void btnDecipher_Click(object sender, EventArgs e)
         {
-            if (!string.IsNullOrEmpty(txtKeyToEncrypt.Text) && !string.IsNullOrEmpty(txtTextToDecrypt.Text))
-            {
-                int key;
-                if (int.TryParse(txtKeyToEncrypt.Text, out key))  
-                {
-                    output = Cipher.Decrypt(txtTextToDecrypt.Text, key);
-
-                    txtDecryptedText.Text = output;
-                }
-                else
-                {
-                    MessageBox.Show("Введите корректный ключ для расшифровки.", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-            }
+            DecryptAndShow(txtTextToDecrypt, txtKeyToDecrypt, txtDecryptedText);
         }
 
         private void txtKeyToEncrypt_TextChanged(object sender, EventArgs e)
@@ -173,15 +184,15 @@ namespace CaesarCipher
         {
             if (string.IsNullOrEmpty(AppData.LastEncryptedText))
             {
-                MessageBox.Show("Нет сохранённого зашифрованного текста!", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Нет сохранённого зашифрованного текста.", "Внимание",
+                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
             txtTextToDecrypt.Text = AppData.LastEncryptedText;
             txtKeyToDecrypt.Text = AppData.LastKey.ToString();
 
-            string decrypted = Cipher.Decrypt(AppData.LastEncryptedText, AppData.LastKey);
-            txtDecryptedText.Text = decrypted;
+            DecryptAndShow(txtTextToDecrypt, txtKeyToDecrypt, txtDecryptedText);
         }
     }
 }
