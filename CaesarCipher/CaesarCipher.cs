@@ -65,13 +65,47 @@ namespace CaesarCipher
             return false;
         }
 
+        private bool ValidateKey(int key, string text)
+        {
+            if (string.IsNullOrWhiteSpace(text))
+                return false;
+
+            char firstChar = text[0];
+
+            // Проверяем латиницу
+            if ((firstChar >= 'A' && firstChar <= 'Z') || (firstChar >= 'a' && firstChar <= 'z'))
+            {
+                if (key > 26)
+                {
+                    MessageBox.Show("Ключ не может быть больше 26 для английского алфавита!",
+                        "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return false;
+                }
+            }
+
+            // Проверяем кириллицу
+            else if ((firstChar >= 'А' && firstChar <= 'я') || firstChar == 'Ё' || firstChar == 'ё')
+            {
+                if (key > 33)
+                {
+                    MessageBox.Show("Ключ не может быть больше 33 для русского алфавита!",
+                        "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return false;
+                }
+            }
+
+            return true;
+        }
+
         private void EncryptAndShow(TextBox sourceText, TextBox keyText, TextBox outputText)
         {
             if (string.IsNullOrWhiteSpace(sourceText.Text)) return;
             if (!TryGetKey(keyText, out var key)) return;
+            if (!ValidateKey(key, sourceText.Text)) return;
 
             output = Cipher.Encrypt(sourceText.Text, key);
             outputText.Text = output;
+
 
             // Сохраняем в AppData для расшифровки
             AppData.LastEncryptedText = output;
@@ -82,6 +116,7 @@ namespace CaesarCipher
         {
             if (string.IsNullOrWhiteSpace(sourceText.Text)) return;
             if (!TryGetKey(keyText, out var key)) return;
+            if (!ValidateKey(key, sourceText.Text)) return;
 
             output = Cipher.Decrypt(sourceText.Text, key);
             outputText.Text = output;
