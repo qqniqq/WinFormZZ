@@ -219,7 +219,7 @@
             this.btnUsePrevious.Name = "btnUsePrevious";
             this.btnUsePrevious.Size = new System.Drawing.Size(382, 27);
             this.btnUsePrevious.TabIndex = 15;
-            this.btnUsePrevious.Text = "Расшифровать предыдущий зашифрованный текст?";
+            this.btnUsePrevious.Text = "Расшифровать предыдущий зашифрованный текст";
             this.btnUsePrevious.UseVisualStyleBackColor = true;
             this.btnUsePrevious.Click += new System.EventHandler(this.btnUsePrevious_Click);
             // 
