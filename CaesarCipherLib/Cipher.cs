@@ -2,48 +2,71 @@
 
 namespace CaesarCipher
 {
+    public enum AlphabetType
+    {
+        English,
+        Russian
+    }
+
     public class Cipher
     {
-        private static readonly string Alphabet =
-            "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyzАБВГДЕЁЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЫЬЭЮЯ" +
-            "абвгдеёжзийклмнопрстуфхцчшщъыьэюя0123456789";
+        private const string EnglishUpper = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+        private const string EnglishLower = "abcdefghijklmnopqrstuvwxyz";
+        private const string RussianUpper = "АБВГДЕЁЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЫЬЭЮЯ";
+        private const string RussianLower = "абвгдеёжзийклмнопрстуфхцчшщъыьэюя";
 
-        public static string Encrypt(string textToEncrypt, int key)
+        public static string Encrypt(string textToEncrypt, int key, AlphabetType alphabetType)
         {
-            if (string.IsNullOrEmpty(textToEncrypt))
-                return string.Empty;
-
-            char currentChar = textToEncrypt[0];
-            int index = Alphabet.IndexOf(currentChar);
-
-            char encryptedChar = currentChar;
-
-            if (index != -1)
-            {
-                int newIndex = (index + key) % Alphabet.Length;
-                encryptedChar = Alphabet[newIndex];
-            }
-
-            return encryptedChar + Encrypt(textToEncrypt.Substring(1), key);
+            return Process(textToEncrypt, key, alphabetType, true);
         }
 
-        public static string Decrypt(string textToDecrypt, int key)
+        public static string Decrypt(string textToDecrypt, int key, AlphabetType alphabetType)
         {
-            if (string.IsNullOrEmpty(textToDecrypt))
-                return string.Empty;
+            return Process(textToDecrypt, key, alphabetType, false);
+        }
 
-            char currentChar = textToDecrypt[0];
-            int index = Alphabet.IndexOf(currentChar);
+        private static string Process(string text, int key, AlphabetType alphabetType, bool encrypt)
+        {
+            char[] result = new char[text.Length];
 
-            char decryptedChar = currentChar;
-
-            if (index != -1)
+            string upper, lower;
+            if (alphabetType == AlphabetType.English)
             {
-                int newIndex = (index - key + Alphabet.Length) % Alphabet.Length;
-                decryptedChar = Alphabet[newIndex];
+                upper = EnglishUpper;
+                lower = EnglishLower;
+            }
+            else
+            {
+                upper = RussianUpper;
+                lower = RussianLower;
             }
 
-            return decryptedChar + Decrypt(textToDecrypt.Substring(1), key);
+            int len = upper.Length; // одинаковая длина у верхнего и нижнего
+
+            for (int i = 0; i < text.Length; i++)
+            {
+                char c = text[i];
+                int index;
+                if ((index = upper.IndexOf(c)) != -1) // верхний регистр
+                {
+                    int shift = encrypt ? key : -key;
+                    int newIndex = (index + shift + len) % len;
+                    result[i] = upper[newIndex];
+                }
+                else if ((index = lower.IndexOf(c)) != -1) // нижний регистр
+                {
+                    int shift = encrypt ? key : -key;
+                    int newIndex = (index + shift + len) % len;
+                    result[i] = lower[newIndex];
+                }
+                else
+                {
+                    // пробелы, цифры, знаки
+                    result[i] = c;
+                }
+            }
+
+            return new string(result);
         }
     }
 }
