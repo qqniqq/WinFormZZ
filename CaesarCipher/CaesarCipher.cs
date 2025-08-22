@@ -19,25 +19,32 @@ namespace CaesarCipher
             InitializeComponent();
             ClearControlsEncrypt();
             ClearControlsDecrypt();
+
+            // блокируем ручной ввод в комбобоксах
+            cmbAlphabet.DropDownStyle = ComboBoxStyle.DropDownList;
+            cmbAlphabetDecrypt.DropDownStyle = ComboBoxStyle.DropDownList;
+            cmbKeyEncrypt.DropDownStyle = ComboBoxStyle.DropDownList;
+            cmbKeyDecrypt.DropDownStyle = ComboBoxStyle.DropDownList;
+            // блокируем редактирование результата руками
+            txtEncryptedText.ReadOnly = true;
+            txtDecryptedText.ReadOnly = true;
+            // изначально кнопка "Сохранить" выключена
+            buttonSave.Enabled = false;
         }
-
-
 
         public void ClearControlsEncrypt()
         {
-
             txtEncryptedText.Text = "";
             txtToEncrypt.Text = "";
             cmbKeyEncrypt.SelectedIndex = -1;
+            buttonSave.Enabled = false;
         }
-
         public void ClearControlsDecrypt()
         {
             txtDecryptedText.Text = "";
             txtTextToDecrypt.Text = "";
             cmbKeyDecrypt.SelectedIndex = -1;
         }
-
         private void CaesarCipher_Load(object sender, EventArgs e)
         {
             string[] langs = { "Русский", "Английский" };
@@ -84,16 +91,6 @@ namespace CaesarCipher
             ClearControlsDecrypt();
         }
 
-        //универс фунцкции
-        private bool TryGetKey(TextBox textBox, out int key)
-        {
-            if (int.TryParse(textBox.Text, out key))
-                return true;
-
-            MessageBox.Show("Введите корректный ключ!", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            return false;
-        }
-
         private AlphabetType GetSelectedAlphabet(ComboBox combo)
         {
             return (combo.SelectedItem != null && combo.SelectedItem.ToString().Contains("Англ"))
@@ -102,10 +99,39 @@ namespace CaesarCipher
         }
 
 
+
         private void EncryptAndShow(TextBox sourceText, ComboBox keyCombo, TextBox outputText, ComboBox alphabetCombo)
         {
-            if (string.IsNullOrWhiteSpace(sourceText.Text)) return;
-            if (keyCombo.SelectedItem == null) return;
+            bool textEmpty = string.IsNullOrWhiteSpace(sourceText.Text);
+            bool keyEmpty = (keyCombo.SelectedItem == null);
+
+            // Оба пусты
+            if (textEmpty && keyEmpty)
+            {
+                MessageBox.Show("Сначала введите ключ и текст для зашифровки", "Ошибка",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+                sourceText.Focus();
+                keyCombo.DroppedDown = true; // подсказка выбрать ключ
+                return;
+            }
+
+            // По отдельности
+            if (textEmpty)
+            {
+                MessageBox.Show("Сначала введите текст для зашифрования", "Ошибка",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+                sourceText.Focus();
+                return;
+            }
+
+            if (keyEmpty)
+            {
+                MessageBox.Show("Сначала выберите ключ", "Ошибка",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+                keyCombo.Focus();
+                keyCombo.DroppedDown = true;
+                return;
+            }
 
             int key = int.Parse(keyCombo.SelectedItem.ToString());
             var alphabetType = GetSelectedAlphabet(alphabetCombo);
@@ -115,12 +141,42 @@ namespace CaesarCipher
 
             AppData.LastEncryptedText = output;
             AppData.LastKey = key;
+
+            buttonSave.Enabled = true; // активируем "Сохранить"
         }
 
         private void DecryptAndShow(TextBox sourceText, ComboBox keyCombo, TextBox outputText, ComboBox alphabetCombo)
         {
-            if (string.IsNullOrWhiteSpace(sourceText.Text)) return;
-            if (keyCombo.SelectedItem == null) return;
+            bool textEmpty = string.IsNullOrWhiteSpace(sourceText.Text);
+            bool keyEmpty = (keyCombo.SelectedItem == null);
+
+            // Оба пусты
+            if (textEmpty && keyEmpty)
+            {
+                MessageBox.Show("Сначала выберите ключ и введите текст для расшифровки", "Ошибка",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+                sourceText.Focus();
+                keyCombo.DroppedDown = true; // подсказка ключ
+                return;
+            }
+
+            // По отдельности
+            if (textEmpty)
+            {
+                MessageBox.Show("Сначала введите текст для расшифровки", "Ошибка",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+                sourceText.Focus();
+                return;
+            }
+
+            if (keyEmpty)
+            {
+                MessageBox.Show("Сначала выберите ключ", "Ошибка",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+                keyCombo.Focus();
+                keyCombo.DroppedDown = true;
+                return;
+            }
 
             int key = int.Parse(keyCombo.SelectedItem.ToString());
             var alphabetType = GetSelectedAlphabet(alphabetCombo);
@@ -140,24 +196,26 @@ namespace CaesarCipher
             DecryptAndShow(txtTextToDecrypt, cmbKeyDecrypt, txtDecryptedText, cmbAlphabetDecrypt);
         }
 
-
-
-
-
-
-
         private void buttonSave_Click(object sender, EventArgs e)
         {
-            // Создаем диалоговое окно для выбора файла
-            SaveFileDialog saveFileDialog = new SaveFileDialog();
-            saveFileDialog.Filter = "Text files (*.txt)|*.txt|All files (*.*)|*.*";  // Устанавливаем фильтр для типов файлов
-            saveFileDialog.Title = "Сохранить зашифрованный текст";  // Заголовок окна
+            if (string.IsNullOrEmpty(txtEncryptedText.Text))
+            {
+                MessageBox.Show("Нет результата для сохранения!",
+                    "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            SaveFileDialog saveFileDialog = new SaveFileDialog
+            {
+                Filter = "Text files (*.txt)|*.txt|All files (*.*)|*.*",
+                Title = "Сохранить зашифрованный текст"
+            };
 
             if (saveFileDialog.ShowDialog() == DialogResult.OK)
             {
-                // Получаем путь и сохраняем зашифрованный текст в выбранный файл
-                System.IO.File.WriteAllText(saveFileDialog.FileName, txtEncryptedText.Text);  // txtEncrypted - текст из TextBox с зашифрованным текстом
-                MessageBox.Show("Результат успешно сохранён!", "Готово", MessageBoxButtons.OK, MessageBoxIcon.Information);  // Уведомление
+                File.WriteAllText(saveFileDialog.FileName, txtEncryptedText.Text);
+                MessageBox.Show("Результат успешно сохранён!", "Готово",
+                    MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
 

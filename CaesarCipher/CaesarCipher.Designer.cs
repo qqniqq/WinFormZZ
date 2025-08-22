@@ -31,6 +31,7 @@
             this.IblKey = new System.Windows.Forms.Label();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.lblAlphabet = new System.Windows.Forms.Label();
             this.cmbKeyEncrypt = new System.Windows.Forms.ComboBox();
             this.cmbAlphabet = new System.Windows.Forms.ComboBox();
             this.buttonSave = new System.Windows.Forms.Button();
@@ -41,6 +42,7 @@
             this.txtToEncrypt = new System.Windows.Forms.TextBox();
             this.IblInitialText = new System.Windows.Forms.Label();
             this.tabPage4 = new System.Windows.Forms.TabPage();
+            this.label1 = new System.Windows.Forms.Label();
             this.cmbKeyDecrypt = new System.Windows.Forms.ComboBox();
             this.cmbAlphabetDecrypt = new System.Windows.Forms.ComboBox();
             this.btnUsePrevious = new System.Windows.Forms.Button();
@@ -52,8 +54,6 @@
             this.txtTextToDecrypt = new System.Windows.Forms.TextBox();
             this.lblDecrypt = new System.Windows.Forms.Label();
             this.materialLabel1 = new System.Windows.Forms.Label();
-            this.lblAlphabet = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.tabPage3.SuspendLayout();
             this.tabPage4.SuspendLayout();
@@ -110,6 +110,16 @@
             this.tabPage3.Text = "Зашифровка";
             this.tabPage3.UseVisualStyleBackColor = true;
             // 
+            // lblAlphabet
+            // 
+            this.lblAlphabet.AutoSize = true;
+            this.lblAlphabet.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblAlphabet.Location = new System.Drawing.Point(165, 5);
+            this.lblAlphabet.Name = "lblAlphabet";
+            this.lblAlphabet.Size = new System.Drawing.Size(82, 22);
+            this.lblAlphabet.TabIndex = 15;
+            this.lblAlphabet.Text = "Алфавит";
+            // 
             // cmbKeyEncrypt
             // 
             this.cmbKeyEncrypt.FormattingEnabled = true;
@@ -162,7 +172,7 @@
             this.cmbAlphabet.Items.AddRange(new object[] {
             "Русский",
             "Английский"});
-            this.cmbAlphabet.Location = new System.Drawing.Point(170, 31);
+            this.cmbAlphabet.Location = new System.Drawing.Point(169, 31);
             this.cmbAlphabet.Margin = new System.Windows.Forms.Padding(4);
             this.cmbAlphabet.Name = "cmbAlphabet";
             this.cmbAlphabet.Size = new System.Drawing.Size(183, 28);
@@ -274,6 +284,16 @@
             this.tabPage4.TabIndex = 1;
             this.tabPage4.Text = "Расшифровка";
             this.tabPage4.UseVisualStyleBackColor = true;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(165, 5);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(82, 22);
+            this.label1.TabIndex = 18;
+            this.label1.Text = "Алфавит";
             // 
             // cmbKeyDecrypt
             // 
@@ -439,26 +459,6 @@
             this.materialLabel1.Size = new System.Drawing.Size(51, 22);
             this.materialLabel1.TabIndex = 5;
             this.materialLabel1.Text = "Ключ";
-            // 
-            // lblAlphabet
-            // 
-            this.lblAlphabet.AutoSize = true;
-            this.lblAlphabet.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblAlphabet.Location = new System.Drawing.Point(166, 5);
-            this.lblAlphabet.Name = "lblAlphabet";
-            this.lblAlphabet.Size = new System.Drawing.Size(82, 22);
-            this.lblAlphabet.TabIndex = 15;
-            this.lblAlphabet.Text = "Алфавит";
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(165, 5);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(82, 22);
-            this.label1.TabIndex = 18;
-            this.label1.Text = "Алфавит";
             // 
             // CaesarCipher
             // 
