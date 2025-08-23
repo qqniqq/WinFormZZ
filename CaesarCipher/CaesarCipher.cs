@@ -70,6 +70,7 @@ namespace CaesarCipher
             txtEncryptedText.ReadOnly = true;
             txtDecryptedText.ReadOnly = true;
         }
+
         private void UpdateKeyCombo(ComboBox languageCombo, ComboBox keyCombo)
         {
             keyCombo.Items.Clear();
@@ -89,12 +90,18 @@ namespace CaesarCipher
 
         private void btnClearControls_Click(object sender, EventArgs e)
         {
-            ClearControlsEncrypt();
+            txtEncryptedText.Text = "";
+            txtToEncrypt.Text = "";
+            cmbAlphabet.SelectedIndex = 0;
+            cmbKeyEncrypt.SelectedIndex = 0;
         }
 
         private void btnCleaerControlsDecrypt_Click(object sender, EventArgs e)
         {
-            ClearControlsDecrypt();
+            txtDecryptedText.Text = "";
+            txtTextToDecrypt.Text = "";
+            cmbAlphabetDecrypt.SelectedIndex = 0;
+            cmbKeyDecrypt.SelectedIndex = 0;
         }
 
         private AlphabetType GetSelectedAlphabet(ComboBox combo)
@@ -275,6 +282,8 @@ namespace CaesarCipher
         }
 
 
+
+
         private void cmbKeyEncrypt_SelectedIndexChanged(object sender, EventArgs e)
         {
 
@@ -283,6 +292,34 @@ namespace CaesarCipher
         private void cmbKeyDecrypt_SelectedIndexChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void txtToEncrypt_TextChanged(object sender, EventArgs e)
+        {
+           
+        }
+
+        private void txtTextToDecrypt_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtTextToDecrypt_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter && !e.Shift)
+            {
+                e.SuppressKeyPress = true; // блокируем перенос строки
+                btnDecipher.PerformClick(); // имитация клика на "Расшифровать"
+            }
+        }
+
+        private void txtToEncrypt_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter && !e.Shift)
+            {
+                e.SuppressKeyPress = true;
+                btnCipher.PerformClick();
+            }
         }
     }
 }

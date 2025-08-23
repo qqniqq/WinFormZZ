@@ -218,11 +218,13 @@
             // 
             // txtEncryptedText
             // 
+            this.txtEncryptedText.BackColor = System.Drawing.Color.LightGray;
             this.txtEncryptedText.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtEncryptedText.Location = new System.Drawing.Point(23, 329);
             this.txtEncryptedText.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             this.txtEncryptedText.Multiline = true;
             this.txtEncryptedText.Name = "txtEncryptedText";
+            this.txtEncryptedText.ReadOnly = true;
             this.txtEncryptedText.Size = new System.Drawing.Size(502, 192);
             this.txtEncryptedText.TabIndex = 3;
             // 
@@ -248,6 +250,8 @@
             this.txtToEncrypt.Name = "txtToEncrypt";
             this.txtToEncrypt.Size = new System.Drawing.Size(502, 192);
             this.txtToEncrypt.TabIndex = 10;
+            this.txtToEncrypt.TextChanged += new System.EventHandler(this.txtToEncrypt_TextChanged);
+            this.txtToEncrypt.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtToEncrypt_KeyDown);
             // 
             // IblInitialText
             // 
@@ -402,11 +406,13 @@
             // 
             // txtDecryptedText
             // 
+            this.txtDecryptedText.BackColor = System.Drawing.Color.LightGray;
             this.txtDecryptedText.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtDecryptedText.Location = new System.Drawing.Point(23, 329);
             this.txtDecryptedText.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             this.txtDecryptedText.Multiline = true;
             this.txtDecryptedText.Name = "txtDecryptedText";
+            this.txtDecryptedText.ReadOnly = true;
             this.txtDecryptedText.Size = new System.Drawing.Size(502, 192);
             this.txtDecryptedText.TabIndex = 9;
             // 
@@ -433,6 +439,8 @@
             this.txtTextToDecrypt.Name = "txtTextToDecrypt";
             this.txtTextToDecrypt.Size = new System.Drawing.Size(502, 192);
             this.txtTextToDecrypt.TabIndex = 10;
+            this.txtTextToDecrypt.TextChanged += new System.EventHandler(this.txtTextToDecrypt_TextChanged);
+            this.txtTextToDecrypt.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtTextToDecrypt_KeyDown);
             // 
             // lblDecrypt
             // 
