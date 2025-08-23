@@ -10,5 +10,6 @@ namespace CaesarCipher
     {
         public static string LastEncryptedText { get; set; }
         public static int LastKey { get; set; }
+        public static AlphabetType LastAlphabet { get; set; }
     }
 }

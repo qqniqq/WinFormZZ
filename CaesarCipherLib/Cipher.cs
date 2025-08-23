@@ -1,4 +1,5 @@
-﻿using System;
+﻿using System.Linq;
+using System.Text;
 
 namespace CaesarCipher
 {
@@ -10,63 +11,68 @@ namespace CaesarCipher
 
     public class Cipher
     {
-        private const string EnglishUpper = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-        private const string EnglishLower = "abcdefghijklmnopqrstuvwxyz";
-        private const string RussianUpper = "АБВГДЕЁЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЫЬЭЮЯ";
-        private const string RussianLower = "абвгдеёжзийклмнопрстуфхцчшщъыьэюя";
+        private static readonly string EnglishUpper = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+        private static readonly string EnglishLower = "abcdefghijklmnopqrstuvwxyz";
+
+        private static readonly string RussianUpper = "АБВГДЕЁЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЫЬЭЮЯ";
+        private static readonly string RussianLower = "абвгдеёжзийклмнопрстуфхцчшщъыьэюя";
 
         public static string Encrypt(string textToEncrypt, int key, AlphabetType alphabetType)
         {
-            return Process(textToEncrypt, key, alphabetType, true);
+            StringBuilder result = new StringBuilder();
+
+            foreach (char c in textToEncrypt)
+            {
+                if (alphabetType == AlphabetType.English)
+                {
+                    if (EnglishUpper.Contains(c))
+                        result.Append(EnglishUpper[(EnglishUpper.IndexOf(c) + key) % EnglishUpper.Length]);
+                    else if (EnglishLower.Contains(c))
+                        result.Append(EnglishLower[(EnglishLower.IndexOf(c) + key) % EnglishLower.Length]);
+                    else
+                        result.Append(c);
+                }
+                else // Russian
+                {
+                    if (RussianUpper.Contains(c))
+                        result.Append(RussianUpper[(RussianUpper.IndexOf(c) + key) % RussianUpper.Length]);
+                    else if (RussianLower.Contains(c))
+                        result.Append(RussianLower[(RussianLower.IndexOf(c) + key) % RussianLower.Length]);
+                    else
+                        result.Append(c);
+                }
+            }
+
+            return result.ToString();
         }
 
         public static string Decrypt(string textToDecrypt, int key, AlphabetType alphabetType)
         {
-            return Process(textToDecrypt, key, alphabetType, false);
-        }
+            StringBuilder result = new StringBuilder();
 
-        private static string Process(string text, int key, AlphabetType alphabetType, bool encrypt)
-        {
-            char[] result = new char[text.Length];
-
-            string upper, lower;
-            if (alphabetType == AlphabetType.English)
+            foreach (char c in textToDecrypt)
             {
-                upper = EnglishUpper;
-                lower = EnglishLower;
-            }
-            else
-            {
-                upper = RussianUpper;
-                lower = RussianLower;
-            }
-
-            int len = upper.Length; // одинаковая длина у верхнего и нижнего
-
-            for (int i = 0; i < text.Length; i++)
-            {
-                char c = text[i];
-                int index;
-                if ((index = upper.IndexOf(c)) != -1) // верхний регистр
+                if (alphabetType == AlphabetType.English)
                 {
-                    int shift = encrypt ? key : -key;
-                    int newIndex = (index + shift + len) % len;
-                    result[i] = upper[newIndex];
+                    if (EnglishUpper.Contains(c))
+                        result.Append(EnglishUpper[(EnglishUpper.IndexOf(c) - key + EnglishUpper.Length) % EnglishUpper.Length]);
+                    else if (EnglishLower.Contains(c))
+                        result.Append(EnglishLower[(EnglishLower.IndexOf(c) - key + EnglishLower.Length) % EnglishLower.Length]);
+                    else
+                        result.Append(c);
                 }
-                else if ((index = lower.IndexOf(c)) != -1) // нижний регистр
+                else //рус
                 {
-                    int shift = encrypt ? key : -key;
-                    int newIndex = (index + shift + len) % len;
-                    result[i] = lower[newIndex];
-                }
-                else
-                {
-                    // пробелы, цифры, знаки
-                    result[i] = c;
+                    if (RussianUpper.Contains(c))
+                        result.Append(RussianUpper[(RussianUpper.IndexOf(c) - key + RussianUpper.Length) % RussianUpper.Length]);
+                    else if (RussianLower.Contains(c))
+                        result.Append(RussianLower[(RussianLower.IndexOf(c) - key + RussianLower.Length) % RussianLower.Length]);
+                    else
+                        result.Append(c);
                 }
             }
 
-            return new string(result);
+            return result.ToString();
         }
     }
 }
