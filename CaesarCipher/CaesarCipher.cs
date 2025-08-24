@@ -17,33 +17,22 @@ namespace CaesarCipher
         public CaesarCipher()
         {
             InitializeComponent();
-            ClearControlsEncrypt();
-            ClearControlsDecrypt();
+            ResetEncryptControls();
+            ResetDecryptControls();
 
             // блокируем ручной ввод в комбобоксах
             cmbAlphabet.DropDownStyle = ComboBoxStyle.DropDownList;
             cmbAlphabetDecrypt.DropDownStyle = ComboBoxStyle.DropDownList;
             cmbKeyEncrypt.DropDownStyle = ComboBoxStyle.DropDownList;
             cmbKeyDecrypt.DropDownStyle = ComboBoxStyle.DropDownList;
-            // блокируем редактирование результата руками
+            // блокируем редактирование результата 
             txtEncryptedText.ReadOnly = true;
             txtDecryptedText.ReadOnly = true;
             // изначально кнопка "Сохранить" выключена
             buttonSave.Enabled = false;
         }
 
-        public void ClearControlsEncrypt()
-        {
-            txtEncryptedText.Text = "";
-            txtToEncrypt.Text = "";
-            cmbKeyEncrypt.SelectedIndex = -1;
-        }
-        public void ClearControlsDecrypt()
-        {
-            txtDecryptedText.Text = "";
-            txtTextToDecrypt.Text = "";
-            cmbKeyDecrypt.SelectedIndex = -1;
-        }
+
         private void CaesarCipher_Load(object sender, EventArgs e)
         {
             string[] langs = { "Русский", "Английский" };
@@ -69,6 +58,8 @@ namespace CaesarCipher
 
             txtEncryptedText.ReadOnly = true;
             txtDecryptedText.ReadOnly = true;
+
+            this.BeginInvoke((MethodInvoker)(() => txtToEncrypt.Focus()));
         }
 
         private void UpdateKeyCombo(ComboBox languageCombo, ComboBox keyCombo)
@@ -88,20 +79,32 @@ namespace CaesarCipher
 
         }
 
-        private void btnClearControls_Click(object sender, EventArgs e)
+        private void ResetEncryptControls()
         {
             txtEncryptedText.Text = "";
             txtToEncrypt.Text = "";
             cmbAlphabet.SelectedIndex = 0;
             cmbKeyEncrypt.SelectedIndex = 0;
+            buttonSave.Enabled = false; //отключаем сохранение, пока нет нового результата
+            txtToEncrypt.Focus();
         }
-
-        private void btnCleaerControlsDecrypt_Click(object sender, EventArgs e)
+        private void ResetDecryptControls()
         {
             txtDecryptedText.Text = "";
             txtTextToDecrypt.Text = "";
             cmbAlphabetDecrypt.SelectedIndex = 0;
             cmbKeyDecrypt.SelectedIndex = 0;
+            txtTextToDecrypt.Focus();
+        }
+
+        private void btnClearControls_Click(object sender, EventArgs e)
+        {
+            ResetEncryptControls();
+        }
+
+        private void btnCleaerControlsDecrypt_Click(object sender, EventArgs e)
+        {
+            ResetDecryptControls();
         }
 
         private AlphabetType GetSelectedAlphabet(ComboBox combo)
@@ -141,6 +144,7 @@ namespace CaesarCipher
 
             return true;
         }
+
 
 
         private void EncryptAndShow(TextBox sourceText, ComboBox keyCombo, TextBox outputText, ComboBox alphabetCombo)
@@ -301,7 +305,7 @@ namespace CaesarCipher
 
         private void txtTextToDecrypt_TextChanged(object sender, EventArgs e)
         {
-
+         
         }
 
         private void txtTextToDecrypt_KeyDown(object sender, KeyEventArgs e)
@@ -321,5 +325,18 @@ namespace CaesarCipher
                 btnCipher.PerformClick();
             }
         }
+
+        private void tabControl1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (tabControl1.SelectedTab.Text == "Зашифровка")
+            {
+                this.BeginInvoke((MethodInvoker)(() => txtToEncrypt.Focus()));
+            }
+            else if (tabControl1.SelectedTab.Text == "Расшифровка")
+            {
+                this.BeginInvoke((MethodInvoker)(() => txtTextToDecrypt.Focus()));
+            }
+        }
+
     }
 }
