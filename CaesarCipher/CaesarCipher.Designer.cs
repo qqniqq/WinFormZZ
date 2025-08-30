@@ -386,6 +386,7 @@
             this.DoubleBuffered = true;
             this.ForeColor = System.Drawing.Color.Black;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.MaximizeBox = false;
             this.Name = "CaesarCipher";
             this.Tag = "";
             this.Load += new System.EventHandler(this.CaesarCipher_Load);
