@@ -20,15 +20,15 @@ namespace CaesarCipher
             ResetEncryptControls();
             ResetDecryptControls();
 
-            // блокируем ручной ввод в комбобоксах
+            //блокируем ручной ввод в комбобоксах
             cmbAlphabet.DropDownStyle = ComboBoxStyle.DropDownList;
             cmbAlphabetDecrypt.DropDownStyle = ComboBoxStyle.DropDownList;
             cmbKeyEncrypt.DropDownStyle = ComboBoxStyle.DropDownList;
             cmbKeyDecrypt.DropDownStyle = ComboBoxStyle.DropDownList;
-            // блокируем редактирование результата 
+            //блокируем редактирование результата 
             txtEncryptedText.ReadOnly = true;
             txtDecryptedText.ReadOnly = true;
-            // изначально кнопка "Сохранить" выключена
+            //изначально кнопка Сохранить выключена
             buttonSave.Enabled = false;
         }
 
@@ -264,7 +264,7 @@ namespace CaesarCipher
                     cmbAlphabetDecrypt.SelectedItem = "Английский";
                 else
                     cmbAlphabetDecrypt.SelectedItem = "Русский";
-                // авторасшифровка
+                //авторасшифровка
                 DecryptAndShow(txtTextToDecrypt, cmbKeyDecrypt, txtDecryptedText, cmbAlphabetDecrypt);
             }
         }
@@ -312,8 +312,8 @@ namespace CaesarCipher
         {
             if (e.KeyCode == Keys.Enter && !e.Shift)
             {
-                e.SuppressKeyPress = true; // блокируем перенос строки
-                btnDecipher.PerformClick(); // имитация клика на "Расшифровать"
+                e.SuppressKeyPress = true; //блокируем перенос строки
+                btnDecipher.PerformClick(); //расшифровать enter
             }
         }
 
