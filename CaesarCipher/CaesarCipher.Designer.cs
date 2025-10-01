@@ -55,7 +55,6 @@
             this.txtTextToDecrypt = new System.Windows.Forms.TextBox();
             this.lblDecrypt = new System.Windows.Forms.Label();
             this.materialLabel1 = new System.Windows.Forms.Label();
-            this.buttonLoadForEncryption = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage3.SuspendLayout();
             this.tabPage4.SuspendLayout();
@@ -82,7 +81,6 @@
             // tabPage3
             // 
             this.tabPage3.BackColor = System.Drawing.Color.Honeydew;
-            this.tabPage3.Controls.Add(this.buttonLoadForEncryption);
             this.tabPage3.Controls.Add(this.lblAlphabet);
             this.tabPage3.Controls.Add(this.cmbKeyEncrypt);
             this.tabPage3.Controls.Add(this.cmbAlphabet);
@@ -378,17 +376,6 @@
             this.materialLabel1.ForeColor = System.Drawing.Color.Black;
             this.materialLabel1.Name = "materialLabel1";
             // 
-            // buttonLoadForEncryption
-            // 
-            this.buttonLoadForEncryption.BackColor = System.Drawing.Color.LightGreen;
-            this.buttonLoadForEncryption.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.buttonLoadForEncryption.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            resources.ApplyResources(this.buttonLoadForEncryption, "buttonLoadForEncryption");
-            this.buttonLoadForEncryption.ForeColor = System.Drawing.Color.Black;
-            this.buttonLoadForEncryption.Name = "buttonLoadForEncryption";
-            this.buttonLoadForEncryption.UseVisualStyleBackColor = false;
-            this.buttonLoadForEncryption.Click += new System.EventHandler(this.buttonLoadForEncryption_Click);
-            // 
             // CaesarCipher
             // 
             resources.ApplyResources(this, "$this");
@@ -440,7 +427,6 @@
         private System.Windows.Forms.ComboBox cmbKeyDecrypt;
         private System.Windows.Forms.Label lblAlphabet;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button buttonLoadForEncryption;
     }
 }
 
