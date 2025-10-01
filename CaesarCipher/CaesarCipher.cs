@@ -401,5 +401,39 @@ namespace CaesarCipher
             }
         }
 
+        private void buttonLoadForEncryption_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog openFileDialog = new OpenFileDialog
+            {
+                Filter = "HTML files (*.html)|*.html|Text files (*.txt)|*.txt|All files (*.*)|*.*",
+                Title = "Выберите файл для зашифровки"
+            };
+
+            if (openFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                string extension = Path.GetExtension(openFileDialog.FileName).ToLower();
+                string textToEncrypt = "";
+
+                if (extension == ".html")
+                {
+                    string html = File.ReadAllText(openFileDialog.FileName, Encoding.UTF8);
+
+                    // Пытаемся вытащить TEXT
+                    int textStart = html.IndexOf("<pre>");
+                    if (textStart >= 0)
+                    {
+                        int textEnd = html.IndexOf("</pre>", textStart);
+                        textToEncrypt = html.Substring(textStart + 5, textEnd - (textStart + 5));
+                    }
+                }
+                else // txt файл
+                {
+                    textToEncrypt = File.ReadAllText(openFileDialog.FileName, Encoding.UTF8);
+                }
+
+                txtToEncrypt.Text = textToEncrypt;
+                txtToEncrypt.Focus();
+            }
+        }
     }
 }
