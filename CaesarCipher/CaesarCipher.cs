@@ -406,33 +406,82 @@ namespace CaesarCipher
             OpenFileDialog openFileDialog = new OpenFileDialog
             {
                 Filter = "HTML files (*.html)|*.html|Text files (*.txt)|*.txt|All files (*.*)|*.*",
-                Title = "Выберите файл для зашифровки"
+                Title = "Выберите файл для расшифровки"
             };
 
             if (openFileDialog.ShowDialog() == DialogResult.OK)
             {
+                string key = "1";
+                string alphabet = "Русский";
+                string encryptedText = "";
+
                 string extension = Path.GetExtension(openFileDialog.FileName).ToLower();
-                string textToEncrypt = "";
 
                 if (extension == ".html")
                 {
                     string html = File.ReadAllText(openFileDialog.FileName, Encoding.UTF8);
 
-                    // Пытаемся вытащить TEXT
+                    // Извлекаем KEY
+                    int keyStart = html.IndexOf("<b>Ключ:</b>");
+                    if (keyStart >= 0)
+                    {
+                        int keyEnd = html.IndexOf("</p>", keyStart);
+                        key = html.Substring(keyStart, keyEnd - keyStart)
+                                  .Replace("<b>Ключ:</b>", "")
+                                  .Replace("<p>", "")
+                                  .Replace("</p>", "")
+                                  .Trim();
+                    }
+
+                    // Извлекаем ALPHABET
+                    int alphabetStart = html.IndexOf("<b>Алфавит:</b>");
+                    if (alphabetStart >= 0)
+                    {
+                        int alphabetEnd = html.IndexOf("</p>", alphabetStart);
+                        alphabet = html.Substring(alphabetStart, alphabetEnd - alphabetStart)
+                                       .Replace("<b>Алфавит:</b>", "")
+                                       .Replace("<p>", "")
+                                       .Replace("</p>", "")
+                                       .Trim();
+                    }
+
+                    // Извлекаем TEXT
                     int textStart = html.IndexOf("<pre>");
                     if (textStart >= 0)
                     {
                         int textEnd = html.IndexOf("</pre>", textStart);
-                        textToEncrypt = html.Substring(textStart + 5, textEnd - (textStart + 5));
+                        encryptedText = html.Substring(textStart + 5, textEnd - (textStart + 5));
                     }
                 }
                 else // txt файл
                 {
-                    textToEncrypt = File.ReadAllText(openFileDialog.FileName, Encoding.UTF8);
+                    string[] lines = File.ReadAllLines(openFileDialog.FileName);
+                    foreach (string line in lines)
+                    {
+                        if (line.StartsWith("KEY="))
+                            key = line.Substring(4);
+                        else if (line.StartsWith("ALPHABET="))
+                            alphabet = line.Substring(9);
+                        else if (line.StartsWith("TEXT="))
+                            encryptedText = line.Substring(5);
+                    }
                 }
 
-                txtToEncrypt.Text = textToEncrypt;
-                txtToEncrypt.Focus();
+                txtTextToDecrypt.Text = encryptedText;
+
+                // Устанавливаем ключ
+                int keyIndex = cmbKeyDecrypt.Items.IndexOf(key);
+                if (keyIndex >= 0)
+                    cmbKeyDecrypt.SelectedIndex = keyIndex;
+
+                // Устанавливаем алфавит
+                if (alphabet.Contains("Англ"))
+                    cmbAlphabetDecrypt.SelectedItem = "Английский";
+                else
+                    cmbAlphabetDecrypt.SelectedItem = "Русский";
+
+                // авторасшифровка
+                DecryptAndShow(txtTextToDecrypt, cmbKeyDecrypt, txtDecryptedText, cmbAlphabetDecrypt);
             }
         }
     }
