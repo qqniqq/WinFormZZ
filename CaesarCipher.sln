@@ -5,8 +5,6 @@ VisualStudioVersion = 17.13.35825.156
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CaesarCipher", "CaesarCipher\CaesarCipher.csproj", "{F06B59A4-0686-46D9-B34A-5D2033E9961A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CaesarCipherTests", "CaesarCipherTests\CaesarCipherTests.csproj", "{8B601546-589A-409C-A4CD-F84302697B2E}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CaesarCipherLib", "CaesarCipherLib\CaesarCipherLib.csproj", "{CEE2FFBD-1A23-4728-9C29-2F0302C6D210}"
 EndProject
 Global
@@ -19,10 +17,6 @@ Global
 		{F06B59A4-0686-46D9-B34A-5D2033E9961A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F06B59A4-0686-46D9-B34A-5D2033E9961A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F06B59A4-0686-46D9-B34A-5D2033E9961A}.Release|Any CPU.Build.0 = Release|Any CPU
-		{8B601546-589A-409C-A4CD-F84302697B2E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{8B601546-589A-409C-A4CD-F84302697B2E}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{8B601546-589A-409C-A4CD-F84302697B2E}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{8B601546-589A-409C-A4CD-F84302697B2E}.Release|Any CPU.Build.0 = Release|Any CPU
 		{CEE2FFBD-1A23-4728-9C29-2F0302C6D210}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{CEE2FFBD-1A23-4728-9C29-2F0302C6D210}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CEE2FFBD-1A23-4728-9C29-2F0302C6D210}.Release|Any CPU.ActiveCfg = Release|Any CPU
