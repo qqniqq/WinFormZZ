@@ -209,10 +209,10 @@ namespace CaesarCipher
             <html>
             <head><meta charset='UTF-8'><title>Результат шифрования</title></head>
             <body>
-                <h2>Результат шифрования</h2>
-                <p><b>Алфавит:</b> {alphabet}</p>
-                <p><b>Ключ:</b> {key}</p>
-                <p><b>Текст:</b><br><pre>{text}</pre></p>
+                <h2>Результат шифрования:</h2>
+                <p><b>ALPHABET:</b> {alphabet}</p>
+                <p><b>KEY:</b> {key}</p>
+                <p><b>TEXT:</b> {text}</p>
             </body>
             </html>";
 
@@ -220,7 +220,8 @@ namespace CaesarCipher
                 }
                 else
                 {
-                    string content = $"KEY={key}\nALPHABET={alphabet}\nTEXT={text}";
+                    string content = $"Результат шифрования:\nKEY={key}\nALPHABET={alphabet}\nTEXT={text}";
+
                     File.WriteAllText(saveFileDialog.FileName, content, Encoding.UTF8);
                 }
 
@@ -265,12 +266,12 @@ namespace CaesarCipher
                 string html = File.ReadAllText(openFileDialog.FileName, Encoding.UTF8);
 
                 // ищем ALPHABET
-                var mAlphabet = Regex.Match(html, @"<b>\s*Алфавит:\s*</b>\s*(.+?)</p>", RegexOptions.IgnoreCase | RegexOptions.Singleline);
+                var mAlphabet = Regex.Match(html, @"<b>\s*ALPHABET:\s*</b>\s*(.+?)</p>", RegexOptions.IgnoreCase | RegexOptions.Singleline);
                 if (mAlphabet.Success)
                     alphabet = WebUtility.HtmlDecode(mAlphabet.Groups[1].Value).Trim();
 
                 // ищем KEY
-                var mKey = Regex.Match(html, @"<b>\s*Ключ:\s*</b>\s*(.+?)</p>", RegexOptions.IgnoreCase | RegexOptions.Singleline);
+                var mKey = Regex.Match(html, @"<b>\s*KEY:\s*</b>\s*(.+?)</p>", RegexOptions.IgnoreCase | RegexOptions.Singleline);
                 if (mKey.Success)
                     key = WebUtility.HtmlDecode(mKey.Groups[1].Value).Trim();
 
@@ -280,7 +281,7 @@ namespace CaesarCipher
                     encryptedText = WebUtility.HtmlDecode(mText.Groups[1].Value);
                 else
                 {
-                    var mText2 = Regex.Match(html, @"<b>\s*Текст:\s*</b>\s*(.+?)</p>", RegexOptions.Singleline | RegexOptions.IgnoreCase);
+                    var mText2 = Regex.Match(html, @"<b>\s*TEXT:\s*</b>\s*(.+?)</p>", RegexOptions.Singleline | RegexOptions.IgnoreCase);
                     if (mText2.Success)
                         encryptedText = WebUtility.HtmlDecode(mText2.Groups[1].Value);
                 }
@@ -290,11 +291,11 @@ namespace CaesarCipher
                 string[] lines = File.ReadAllLines(openFileDialog.FileName, Encoding.UTF8);
                 foreach (string line in lines)
                 {
-                    if (line.StartsWith("Ключ="))
+                    if (line.StartsWith("KEY="))
                         key = line.Substring(4).Trim();
-                    else if (line.StartsWith("Алфавит="))
+                    else if (line.StartsWith("ALPHABET="))
                         alphabet = line.Substring(9).Trim();
-                    else if (line.StartsWith("Текст="))
+                    else if (line.StartsWith("TEXT="))
                         encryptedText = line.Substring(5);
                 }
             }
