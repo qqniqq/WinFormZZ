@@ -290,11 +290,11 @@ namespace CaesarCipher
                 string[] lines = File.ReadAllLines(openFileDialog.FileName, Encoding.UTF8);
                 foreach (string line in lines)
                 {
-                    if (line.StartsWith("KEY="))
+                    if (line.StartsWith("Ключ="))
                         key = line.Substring(4).Trim();
-                    else if (line.StartsWith("ALPHABET="))
+                    else if (line.StartsWith("Алфавит="))
                         alphabet = line.Substring(9).Trim();
-                    else if (line.StartsWith("TEXT="))
+                    else if (line.StartsWith("Текст="))
                         encryptedText = line.Substring(5);
                 }
             }
