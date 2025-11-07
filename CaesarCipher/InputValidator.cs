@@ -12,11 +12,8 @@ namespace CaesarCipher
                     "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
-
             return true;
         }
-
-
         public static bool ValidateFile(string key, string alphabet, string text)
         {
             if (string.IsNullOrWhiteSpace(key) ||
@@ -27,7 +24,6 @@ namespace CaesarCipher
                     "Некорректный файл", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return false;
             }
-
             return true;
         }
     }

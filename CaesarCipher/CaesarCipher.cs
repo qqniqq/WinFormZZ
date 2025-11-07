@@ -145,15 +145,7 @@ namespace CaesarCipher
                 );
             }
         }
-        private void materialLabel3_Click(object sender, EventArgs e)
-        {
-        }
-        private void lblDecrypt_Click(object sender, EventArgs e)
-        {
-        }
-        private void button1_Click(object sender, EventArgs e)
-        {
-        }
+
         private void buttonLoadForDecryption_Click(object sender, EventArgs e)
         {
             OpenFileDialog openFileDialog = new OpenFileDialog
@@ -192,18 +184,7 @@ namespace CaesarCipher
             cmbKeyDecrypt.SelectedItem = AppData.LastKey.ToString();
             btnDecipher.PerformClick();
         }
-        private void cmbKeyEncrypt_SelectedIndexChanged(object sender, EventArgs e)
-        {
-        }
-        private void cmbKeyDecrypt_SelectedIndexChanged(object sender, EventArgs e)
-        {
-        }
-        private void txtToEncrypt_TextChanged(object sender, EventArgs e)
-        {
-        }
-        private void txtTextToDecrypt_TextChanged(object sender, EventArgs e)
-        {
-        }
+
         private void txtTextToDecrypt_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter && !e.Shift)
@@ -230,6 +211,27 @@ namespace CaesarCipher
             {
                 this.BeginInvoke((MethodInvoker)(() => txtTextToDecrypt.Focus()));
             }
+        }
+        private void cmbKeyEncrypt_SelectedIndexChanged(object sender, EventArgs e)
+        {
+        }
+        private void cmbKeyDecrypt_SelectedIndexChanged(object sender, EventArgs e)
+        {
+        }
+        private void txtToEncrypt_TextChanged(object sender, EventArgs e)
+        {
+        }
+        private void txtTextToDecrypt_TextChanged(object sender, EventArgs e)
+        {
+        }
+        private void materialLabel3_Click(object sender, EventArgs e)
+        {
+        }
+        private void lblDecrypt_Click(object sender, EventArgs e)
+        {
+        }
+        private void button1_Click(object sender, EventArgs e)
+        {
         }
         private void tabPage4_Click(object sender, EventArgs e)
         {

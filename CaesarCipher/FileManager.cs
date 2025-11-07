@@ -29,7 +29,6 @@ namespace CaesarCipher
 <pre>{text}</pre>
 </body>
 </html>";
-
                 File.WriteAllText(path, html, Encoding.UTF8);
             }
             else
@@ -38,22 +37,16 @@ namespace CaesarCipher
                 File.WriteAllText(path, content, Encoding.UTF8);
             }
         }
-
-
         public static FileData LoadFile(string path)
         {
             FileData data = new FileData();
             string ext = Path.GetExtension(path).ToLower();
-
             string text = null, alphabet = null, key = null;
-
             if (ext == ".html")
             {
                 string html = File.ReadAllText(path, Encoding.UTF8);
-
                 alphabet = Regex.Match(html, @"ALPHABET:\s*</b>\s*(.*?)</p>", RegexOptions.Singleline).Groups[1].Value;
                 key = Regex.Match(html, @"KEY:\s*</b>\s*(.*?)</p>", RegexOptions.Singleline).Groups[1].Value;
-
                 var t = Regex.Match(html, @"<pre>(.*?)</pre>", RegexOptions.Singleline);
                 if (t.Success)
                     text = WebUtility.HtmlDecode(t.Groups[1].Value);
@@ -61,7 +54,6 @@ namespace CaesarCipher
             else
             {
                 string[] lines = File.ReadAllLines(path, Encoding.UTF8);
-
                 foreach (string line in lines)
                 {
                     if (line.StartsWith("KEY=")) key = line.Substring(4).Trim();
@@ -69,12 +61,10 @@ namespace CaesarCipher
                     if (line.StartsWith("TEXT=")) text = line.Substring(5);
                 }
             }
-
             data.Key = key;
             data.Alphabet = alphabet;
             data.Text = text;
             data.IsValid = InputValidator.ValidateFile(key, alphabet, text);
-
             return data;
         }
     }
