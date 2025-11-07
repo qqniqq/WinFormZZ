@@ -156,24 +156,6 @@
   <metadata name="tabControl1.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
-  <data name="lblAlphabet.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="lblAlphabet.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Rockwell, 13pt</value>
-  </data>
-  <data name="lblAlphabet.Location" type="System.Drawing.Point, System.Drawing">
-    <value>164, 5</value>
-  </data>
-  <data name="lblAlphabet.Size" type="System.Drawing.Size, System.Drawing">
-    <value>90, 25</value>
-  </data>
-  <data name="lblAlphabet.TabIndex" type="System.Int32, mscorlib">
-    <value>15</value>
-  </data>
-  <data name="lblAlphabet.Text" xml:space="preserve">
-    <value>Алфавит</value>
-  </data>
   <data name="&gt;&gt;lblAlphabet.Name" xml:space="preserve">
     <value>lblAlphabet</value>
   </data>
@@ -185,120 +167,6 @@
   </data>
   <data name="&gt;&gt;lblAlphabet.ZOrder" xml:space="preserve">
     <value>0</value>
-  </data>
-  <data name="cmbKeyEncrypt.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Microsoft Sans Serif, 10.8pt</value>
-  </data>
-  <data name="cmbKeyEncrypt.Items" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="cmbKeyEncrypt.Items1" xml:space="preserve">
-    <value>2</value>
-  </data>
-  <data name="cmbKeyEncrypt.Items2" xml:space="preserve">
-    <value>3</value>
-  </data>
-  <data name="cmbKeyEncrypt.Items3" xml:space="preserve">
-    <value>4</value>
-  </data>
-  <data name="cmbKeyEncrypt.Items4" xml:space="preserve">
-    <value>5</value>
-  </data>
-  <data name="cmbKeyEncrypt.Items5" xml:space="preserve">
-    <value>6</value>
-  </data>
-  <data name="cmbKeyEncrypt.Items6" xml:space="preserve">
-    <value>7</value>
-  </data>
-  <data name="cmbKeyEncrypt.Items7" xml:space="preserve">
-    <value>8</value>
-  </data>
-  <data name="cmbKeyEncrypt.Items8" xml:space="preserve">
-    <value>9</value>
-  </data>
-  <data name="cmbKeyEncrypt.Items9" xml:space="preserve">
-    <value>10</value>
-  </data>
-  <data name="cmbKeyEncrypt.Items10" xml:space="preserve">
-    <value>11</value>
-  </data>
-  <data name="cmbKeyEncrypt.Items11" xml:space="preserve">
-    <value>12</value>
-  </data>
-  <data name="cmbKeyEncrypt.Items12" xml:space="preserve">
-    <value>13</value>
-  </data>
-  <data name="cmbKeyEncrypt.Items13" xml:space="preserve">
-    <value>14</value>
-  </data>
-  <data name="cmbKeyEncrypt.Items14" xml:space="preserve">
-    <value>15</value>
-  </data>
-  <data name="cmbKeyEncrypt.Items15" xml:space="preserve">
-    <value>16</value>
-  </data>
-  <data name="cmbKeyEncrypt.Items16" xml:space="preserve">
-    <value>17</value>
-  </data>
-  <data name="cmbKeyEncrypt.Items17" xml:space="preserve">
-    <value>18</value>
-  </data>
-  <data name="cmbKeyEncrypt.Items18" xml:space="preserve">
-    <value>19</value>
-  </data>
-  <data name="cmbKeyEncrypt.Items19" xml:space="preserve">
-    <value>20</value>
-  </data>
-  <data name="cmbKeyEncrypt.Items20" xml:space="preserve">
-    <value>21</value>
-  </data>
-  <data name="cmbKeyEncrypt.Items21" xml:space="preserve">
-    <value>22</value>
-  </data>
-  <data name="cmbKeyEncrypt.Items22" xml:space="preserve">
-    <value>23</value>
-  </data>
-  <data name="cmbKeyEncrypt.Items23" xml:space="preserve">
-    <value>24</value>
-  </data>
-  <data name="cmbKeyEncrypt.Items24" xml:space="preserve">
-    <value>25</value>
-  </data>
-  <data name="cmbKeyEncrypt.Items25" xml:space="preserve">
-    <value>26</value>
-  </data>
-  <data name="cmbKeyEncrypt.Items26" xml:space="preserve">
-    <value>27</value>
-  </data>
-  <data name="cmbKeyEncrypt.Items27" xml:space="preserve">
-    <value>28</value>
-  </data>
-  <data name="cmbKeyEncrypt.Items28" xml:space="preserve">
-    <value>29</value>
-  </data>
-  <data name="cmbKeyEncrypt.Items29" xml:space="preserve">
-    <value>30</value>
-  </data>
-  <data name="cmbKeyEncrypt.Items30" xml:space="preserve">
-    <value>31</value>
-  </data>
-  <data name="cmbKeyEncrypt.Items31" xml:space="preserve">
-    <value>32</value>
-  </data>
-  <data name="cmbKeyEncrypt.Items32" xml:space="preserve">
-    <value>33</value>
-  </data>
-  <data name="cmbKeyEncrypt.Location" type="System.Drawing.Point, System.Drawing">
-    <value>22, 31</value>
-  </data>
-  <data name="cmbKeyEncrypt.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 4, 4, 4</value>
-  </data>
-  <data name="cmbKeyEncrypt.Size" type="System.Drawing.Size, System.Drawing">
-    <value>122, 30</value>
-  </data>
-  <data name="cmbKeyEncrypt.TabIndex" type="System.Int32, mscorlib">
-    <value>14</value>
   </data>
   <data name="&gt;&gt;cmbKeyEncrypt.Name" xml:space="preserve">
     <value>cmbKeyEncrypt</value>
@@ -312,30 +180,6 @@
   <data name="&gt;&gt;cmbKeyEncrypt.ZOrder" xml:space="preserve">
     <value>1</value>
   </data>
-  <data name="cmbAlphabet.AccessibleDescription" xml:space="preserve">
-    <value />
-  </data>
-  <data name="cmbAlphabet.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Microsoft Sans Serif, 10.8pt</value>
-  </data>
-  <data name="cmbAlphabet.Items" xml:space="preserve">
-    <value>Русский</value>
-  </data>
-  <data name="cmbAlphabet.Items1" xml:space="preserve">
-    <value>Английский</value>
-  </data>
-  <data name="cmbAlphabet.Location" type="System.Drawing.Point, System.Drawing">
-    <value>169, 31</value>
-  </data>
-  <data name="cmbAlphabet.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 4, 4, 4</value>
-  </data>
-  <data name="cmbAlphabet.Size" type="System.Drawing.Size, System.Drawing">
-    <value>183, 30</value>
-  </data>
-  <data name="cmbAlphabet.TabIndex" type="System.Int32, mscorlib">
-    <value>13</value>
-  </data>
   <data name="&gt;&gt;cmbAlphabet.Name" xml:space="preserve">
     <value>cmbAlphabet</value>
   </data>
@@ -347,27 +191,6 @@
   </data>
   <data name="&gt;&gt;cmbAlphabet.ZOrder" xml:space="preserve">
     <value>2</value>
-  </data>
-  <data name="buttonSave.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
-    <value>Flat</value>
-  </data>
-  <data name="buttonSave.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Rockwell, 13pt</value>
-  </data>
-  <data name="buttonSave.Location" type="System.Drawing.Point, System.Drawing">
-    <value>538, 329</value>
-  </data>
-  <data name="buttonSave.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 4, 4, 4</value>
-  </data>
-  <data name="buttonSave.Size" type="System.Drawing.Size, System.Drawing">
-    <value>286, 76</value>
-  </data>
-  <data name="buttonSave.TabIndex" type="System.Int32, mscorlib">
-    <value>9</value>
-  </data>
-  <data name="buttonSave.Text" xml:space="preserve">
-    <value>Сохранить результат</value>
   </data>
   <data name="&gt;&gt;buttonSave.Name" xml:space="preserve">
     <value>buttonSave</value>
@@ -381,27 +204,6 @@
   <data name="&gt;&gt;buttonSave.ZOrder" xml:space="preserve">
     <value>3</value>
   </data>
-  <data name="btnCipher.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
-    <value>Flat</value>
-  </data>
-  <data name="btnCipher.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Rockwell, 13pt</value>
-  </data>
-  <data name="btnCipher.Location" type="System.Drawing.Point, System.Drawing">
-    <value>536, 100</value>
-  </data>
-  <data name="btnCipher.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>6, 5, 6, 5</value>
-  </data>
-  <data name="btnCipher.Size" type="System.Drawing.Size, System.Drawing">
-    <value>286, 76</value>
-  </data>
-  <data name="btnCipher.TabIndex" type="System.Int32, mscorlib">
-    <value>12</value>
-  </data>
-  <data name="btnCipher.Text" xml:space="preserve">
-    <value>Зашифровать</value>
-  </data>
   <data name="&gt;&gt;btnCipher.Name" xml:space="preserve">
     <value>btnCipher</value>
   </data>
@@ -413,27 +215,6 @@
   </data>
   <data name="&gt;&gt;btnCipher.ZOrder" xml:space="preserve">
     <value>4</value>
-  </data>
-  <data name="btnClearControls.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
-    <value>Flat</value>
-  </data>
-  <data name="btnClearControls.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Rockwell, 13pt</value>
-  </data>
-  <data name="btnClearControls.Location" type="System.Drawing.Point, System.Drawing">
-    <value>536, 445</value>
-  </data>
-  <data name="btnClearControls.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>6, 5, 6, 5</value>
-  </data>
-  <data name="btnClearControls.Size" type="System.Drawing.Size, System.Drawing">
-    <value>286, 76</value>
-  </data>
-  <data name="btnClearControls.TabIndex" type="System.Int32, mscorlib">
-    <value>4</value>
-  </data>
-  <data name="btnClearControls.Text" xml:space="preserve">
-    <value>Очистить </value>
   </data>
   <data name="&gt;&gt;btnClearControls.Name" xml:space="preserve">
     <value>btnClearControls</value>
@@ -447,24 +228,6 @@
   <data name="&gt;&gt;btnClearControls.ZOrder" xml:space="preserve">
     <value>5</value>
   </data>
-  <data name="txtEncryptedText.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Rockwell, 13pt</value>
-  </data>
-  <data name="txtEncryptedText.Location" type="System.Drawing.Point, System.Drawing">
-    <value>23, 329</value>
-  </data>
-  <data name="txtEncryptedText.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>6, 5, 6, 5</value>
-  </data>
-  <data name="txtEncryptedText.Multiline" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="txtEncryptedText.Size" type="System.Drawing.Size, System.Drawing">
-    <value>502, 192</value>
-  </data>
-  <data name="txtEncryptedText.TabIndex" type="System.Int32, mscorlib">
-    <value>3</value>
-  </data>
   <data name="&gt;&gt;txtEncryptedText.Name" xml:space="preserve">
     <value>txtEncryptedText</value>
   </data>
@@ -476,27 +239,6 @@
   </data>
   <data name="&gt;&gt;txtEncryptedText.ZOrder" xml:space="preserve">
     <value>6</value>
-  </data>
-  <data name="IblOutputText.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="IblOutputText.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Rockwell, 13pt</value>
-  </data>
-  <data name="IblOutputText.Location" type="System.Drawing.Point, System.Drawing">
-    <value>18, 298</value>
-  </data>
-  <data name="IblOutputText.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>6, 0, 6, 0</value>
-  </data>
-  <data name="IblOutputText.Size" type="System.Drawing.Size, System.Drawing">
-    <value>222, 25</value>
-  </data>
-  <data name="IblOutputText.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
-  </data>
-  <data name="IblOutputText.Text" xml:space="preserve">
-    <value>Зашифрованный текст :</value>
   </data>
   <data name="&gt;&gt;IblOutputText.Name" xml:space="preserve">
     <value>IblOutputText</value>
@@ -510,24 +252,6 @@
   <data name="&gt;&gt;IblOutputText.ZOrder" xml:space="preserve">
     <value>7</value>
   </data>
-  <data name="txtToEncrypt.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Rockwell, 13pt</value>
-  </data>
-  <data name="txtToEncrypt.Location" type="System.Drawing.Point, System.Drawing">
-    <value>23, 100</value>
-  </data>
-  <data name="txtToEncrypt.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>6, 5, 6, 5</value>
-  </data>
-  <data name="txtToEncrypt.Multiline" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="txtToEncrypt.Size" type="System.Drawing.Size, System.Drawing">
-    <value>502, 192</value>
-  </data>
-  <data name="txtToEncrypt.TabIndex" type="System.Int32, mscorlib">
-    <value>10</value>
-  </data>
   <data name="&gt;&gt;txtToEncrypt.Name" xml:space="preserve">
     <value>txtToEncrypt</value>
   </data>
@@ -539,27 +263,6 @@
   </data>
   <data name="&gt;&gt;txtToEncrypt.ZOrder" xml:space="preserve">
     <value>8</value>
-  </data>
-  <data name="IblInitialText.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="IblInitialText.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Rockwell, 13pt</value>
-  </data>
-  <data name="IblInitialText.Location" type="System.Drawing.Point, System.Drawing">
-    <value>18, 70</value>
-  </data>
-  <data name="IblInitialText.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>6, 0, 6, 0</value>
-  </data>
-  <data name="IblInitialText.Size" type="System.Drawing.Size, System.Drawing">
-    <value>245, 25</value>
-  </data>
-  <data name="IblInitialText.TabIndex" type="System.Int32, mscorlib">
-    <value>4</value>
-  </data>
-  <data name="IblInitialText.Text" xml:space="preserve">
-    <value>Текст для зашифрования :</value>
   </data>
   <data name="&gt;&gt;IblInitialText.Name" xml:space="preserve">
     <value>IblInitialText</value>
@@ -770,6 +473,9 @@
   </data>
   <data name="cmbAlphabetDecrypt.Items1" xml:space="preserve">
     <value>Английский</value>
+  </data>
+  <data name="cmbAlphabetDecrypt.Items2" xml:space="preserve">
+    <value>Цифры</value>
   </data>
   <data name="cmbAlphabetDecrypt.Location" type="System.Drawing.Point, System.Drawing">
     <value>169, 31</value>
@@ -1145,6 +851,426 @@
   </data>
   <data name="&gt;&gt;tabControl1.ZOrder" xml:space="preserve">
     <value>0</value>
+  </data>
+  <data name="lblAlphabet.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="lblAlphabet.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Rockwell, 13pt</value>
+  </data>
+  <data name="lblAlphabet.Location" type="System.Drawing.Point, System.Drawing">
+    <value>164, 5</value>
+  </data>
+  <data name="lblAlphabet.Size" type="System.Drawing.Size, System.Drawing">
+    <value>90, 25</value>
+  </data>
+  <data name="lblAlphabet.TabIndex" type="System.Int32, mscorlib">
+    <value>15</value>
+  </data>
+  <data name="lblAlphabet.Text" xml:space="preserve">
+    <value>Алфавит</value>
+  </data>
+  <data name="&gt;&gt;lblAlphabet.Name" xml:space="preserve">
+    <value>lblAlphabet</value>
+  </data>
+  <data name="&gt;&gt;lblAlphabet.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;lblAlphabet.Parent" xml:space="preserve">
+    <value>tabPage3</value>
+  </data>
+  <data name="&gt;&gt;lblAlphabet.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="cmbKeyEncrypt.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 10.8pt</value>
+  </data>
+  <data name="cmbKeyEncrypt.Items" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="cmbKeyEncrypt.Items1" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="cmbKeyEncrypt.Items2" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="cmbKeyEncrypt.Items3" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="cmbKeyEncrypt.Items4" xml:space="preserve">
+    <value>5</value>
+  </data>
+  <data name="cmbKeyEncrypt.Items5" xml:space="preserve">
+    <value>6</value>
+  </data>
+  <data name="cmbKeyEncrypt.Items6" xml:space="preserve">
+    <value>7</value>
+  </data>
+  <data name="cmbKeyEncrypt.Items7" xml:space="preserve">
+    <value>8</value>
+  </data>
+  <data name="cmbKeyEncrypt.Items8" xml:space="preserve">
+    <value>9</value>
+  </data>
+  <data name="cmbKeyEncrypt.Items9" xml:space="preserve">
+    <value>10</value>
+  </data>
+  <data name="cmbKeyEncrypt.Items10" xml:space="preserve">
+    <value>11</value>
+  </data>
+  <data name="cmbKeyEncrypt.Items11" xml:space="preserve">
+    <value>12</value>
+  </data>
+  <data name="cmbKeyEncrypt.Items12" xml:space="preserve">
+    <value>13</value>
+  </data>
+  <data name="cmbKeyEncrypt.Items13" xml:space="preserve">
+    <value>14</value>
+  </data>
+  <data name="cmbKeyEncrypt.Items14" xml:space="preserve">
+    <value>15</value>
+  </data>
+  <data name="cmbKeyEncrypt.Items15" xml:space="preserve">
+    <value>16</value>
+  </data>
+  <data name="cmbKeyEncrypt.Items16" xml:space="preserve">
+    <value>17</value>
+  </data>
+  <data name="cmbKeyEncrypt.Items17" xml:space="preserve">
+    <value>18</value>
+  </data>
+  <data name="cmbKeyEncrypt.Items18" xml:space="preserve">
+    <value>19</value>
+  </data>
+  <data name="cmbKeyEncrypt.Items19" xml:space="preserve">
+    <value>20</value>
+  </data>
+  <data name="cmbKeyEncrypt.Items20" xml:space="preserve">
+    <value>21</value>
+  </data>
+  <data name="cmbKeyEncrypt.Items21" xml:space="preserve">
+    <value>22</value>
+  </data>
+  <data name="cmbKeyEncrypt.Items22" xml:space="preserve">
+    <value>23</value>
+  </data>
+  <data name="cmbKeyEncrypt.Items23" xml:space="preserve">
+    <value>24</value>
+  </data>
+  <data name="cmbKeyEncrypt.Items24" xml:space="preserve">
+    <value>25</value>
+  </data>
+  <data name="cmbKeyEncrypt.Items25" xml:space="preserve">
+    <value>26</value>
+  </data>
+  <data name="cmbKeyEncrypt.Items26" xml:space="preserve">
+    <value>27</value>
+  </data>
+  <data name="cmbKeyEncrypt.Items27" xml:space="preserve">
+    <value>28</value>
+  </data>
+  <data name="cmbKeyEncrypt.Items28" xml:space="preserve">
+    <value>29</value>
+  </data>
+  <data name="cmbKeyEncrypt.Items29" xml:space="preserve">
+    <value>30</value>
+  </data>
+  <data name="cmbKeyEncrypt.Items30" xml:space="preserve">
+    <value>31</value>
+  </data>
+  <data name="cmbKeyEncrypt.Items31" xml:space="preserve">
+    <value>32</value>
+  </data>
+  <data name="cmbKeyEncrypt.Items32" xml:space="preserve">
+    <value>33</value>
+  </data>
+  <data name="cmbKeyEncrypt.Location" type="System.Drawing.Point, System.Drawing">
+    <value>22, 31</value>
+  </data>
+  <data name="cmbKeyEncrypt.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 4, 4, 4</value>
+  </data>
+  <data name="cmbKeyEncrypt.Size" type="System.Drawing.Size, System.Drawing">
+    <value>122, 30</value>
+  </data>
+  <data name="cmbKeyEncrypt.TabIndex" type="System.Int32, mscorlib">
+    <value>14</value>
+  </data>
+  <data name="&gt;&gt;cmbKeyEncrypt.Name" xml:space="preserve">
+    <value>cmbKeyEncrypt</value>
+  </data>
+  <data name="&gt;&gt;cmbKeyEncrypt.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;cmbKeyEncrypt.Parent" xml:space="preserve">
+    <value>tabPage3</value>
+  </data>
+  <data name="&gt;&gt;cmbKeyEncrypt.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="cmbAlphabet.AccessibleDescription" xml:space="preserve">
+    <value />
+  </data>
+  <data name="cmbAlphabet.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 10.8pt</value>
+  </data>
+  <data name="cmbAlphabet.Items" xml:space="preserve">
+    <value>Русский</value>
+  </data>
+  <data name="cmbAlphabet.Items1" xml:space="preserve">
+    <value>Английский</value>
+  </data>
+  <data name="cmbAlphabet.Items2" xml:space="preserve">
+    <value>Цифры</value>
+  </data>
+  <data name="cmbAlphabet.Location" type="System.Drawing.Point, System.Drawing">
+    <value>169, 31</value>
+  </data>
+  <data name="cmbAlphabet.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 4, 4, 4</value>
+  </data>
+  <data name="cmbAlphabet.Size" type="System.Drawing.Size, System.Drawing">
+    <value>183, 30</value>
+  </data>
+  <data name="cmbAlphabet.TabIndex" type="System.Int32, mscorlib">
+    <value>13</value>
+  </data>
+  <data name="&gt;&gt;cmbAlphabet.Name" xml:space="preserve">
+    <value>cmbAlphabet</value>
+  </data>
+  <data name="&gt;&gt;cmbAlphabet.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;cmbAlphabet.Parent" xml:space="preserve">
+    <value>tabPage3</value>
+  </data>
+  <data name="&gt;&gt;cmbAlphabet.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="buttonSave.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+    <value>Flat</value>
+  </data>
+  <data name="buttonSave.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Rockwell, 13pt</value>
+  </data>
+  <data name="buttonSave.Location" type="System.Drawing.Point, System.Drawing">
+    <value>538, 329</value>
+  </data>
+  <data name="buttonSave.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 4, 4, 4</value>
+  </data>
+  <data name="buttonSave.Size" type="System.Drawing.Size, System.Drawing">
+    <value>286, 76</value>
+  </data>
+  <data name="buttonSave.TabIndex" type="System.Int32, mscorlib">
+    <value>9</value>
+  </data>
+  <data name="buttonSave.Text" xml:space="preserve">
+    <value>Сохранить результат</value>
+  </data>
+  <data name="&gt;&gt;buttonSave.Name" xml:space="preserve">
+    <value>buttonSave</value>
+  </data>
+  <data name="&gt;&gt;buttonSave.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;buttonSave.Parent" xml:space="preserve">
+    <value>tabPage3</value>
+  </data>
+  <data name="&gt;&gt;buttonSave.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="btnCipher.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+    <value>Flat</value>
+  </data>
+  <data name="btnCipher.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Rockwell, 13pt</value>
+  </data>
+  <data name="btnCipher.Location" type="System.Drawing.Point, System.Drawing">
+    <value>536, 100</value>
+  </data>
+  <data name="btnCipher.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>6, 5, 6, 5</value>
+  </data>
+  <data name="btnCipher.Size" type="System.Drawing.Size, System.Drawing">
+    <value>286, 76</value>
+  </data>
+  <data name="btnCipher.TabIndex" type="System.Int32, mscorlib">
+    <value>12</value>
+  </data>
+  <data name="btnCipher.Text" xml:space="preserve">
+    <value>Зашифровать</value>
+  </data>
+  <data name="&gt;&gt;btnCipher.Name" xml:space="preserve">
+    <value>btnCipher</value>
+  </data>
+  <data name="&gt;&gt;btnCipher.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;btnCipher.Parent" xml:space="preserve">
+    <value>tabPage3</value>
+  </data>
+  <data name="&gt;&gt;btnCipher.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="btnClearControls.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+    <value>Flat</value>
+  </data>
+  <data name="btnClearControls.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Rockwell, 13pt</value>
+  </data>
+  <data name="btnClearControls.Location" type="System.Drawing.Point, System.Drawing">
+    <value>536, 445</value>
+  </data>
+  <data name="btnClearControls.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>6, 5, 6, 5</value>
+  </data>
+  <data name="btnClearControls.Size" type="System.Drawing.Size, System.Drawing">
+    <value>286, 76</value>
+  </data>
+  <data name="btnClearControls.TabIndex" type="System.Int32, mscorlib">
+    <value>4</value>
+  </data>
+  <data name="btnClearControls.Text" xml:space="preserve">
+    <value>Очистить </value>
+  </data>
+  <data name="&gt;&gt;btnClearControls.Name" xml:space="preserve">
+    <value>btnClearControls</value>
+  </data>
+  <data name="&gt;&gt;btnClearControls.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;btnClearControls.Parent" xml:space="preserve">
+    <value>tabPage3</value>
+  </data>
+  <data name="&gt;&gt;btnClearControls.ZOrder" xml:space="preserve">
+    <value>5</value>
+  </data>
+  <data name="txtEncryptedText.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Rockwell, 13pt</value>
+  </data>
+  <data name="txtEncryptedText.Location" type="System.Drawing.Point, System.Drawing">
+    <value>23, 329</value>
+  </data>
+  <data name="txtEncryptedText.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>6, 5, 6, 5</value>
+  </data>
+  <data name="txtEncryptedText.Multiline" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="txtEncryptedText.Size" type="System.Drawing.Size, System.Drawing">
+    <value>502, 192</value>
+  </data>
+  <data name="txtEncryptedText.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="&gt;&gt;txtEncryptedText.Name" xml:space="preserve">
+    <value>txtEncryptedText</value>
+  </data>
+  <data name="&gt;&gt;txtEncryptedText.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;txtEncryptedText.Parent" xml:space="preserve">
+    <value>tabPage3</value>
+  </data>
+  <data name="&gt;&gt;txtEncryptedText.ZOrder" xml:space="preserve">
+    <value>6</value>
+  </data>
+  <data name="IblOutputText.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="IblOutputText.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Rockwell, 13pt</value>
+  </data>
+  <data name="IblOutputText.Location" type="System.Drawing.Point, System.Drawing">
+    <value>18, 298</value>
+  </data>
+  <data name="IblOutputText.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>6, 0, 6, 0</value>
+  </data>
+  <data name="IblOutputText.Size" type="System.Drawing.Size, System.Drawing">
+    <value>222, 25</value>
+  </data>
+  <data name="IblOutputText.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="IblOutputText.Text" xml:space="preserve">
+    <value>Зашифрованный текст :</value>
+  </data>
+  <data name="&gt;&gt;IblOutputText.Name" xml:space="preserve">
+    <value>IblOutputText</value>
+  </data>
+  <data name="&gt;&gt;IblOutputText.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;IblOutputText.Parent" xml:space="preserve">
+    <value>tabPage3</value>
+  </data>
+  <data name="&gt;&gt;IblOutputText.ZOrder" xml:space="preserve">
+    <value>7</value>
+  </data>
+  <data name="txtToEncrypt.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Rockwell, 13pt</value>
+  </data>
+  <data name="txtToEncrypt.Location" type="System.Drawing.Point, System.Drawing">
+    <value>23, 100</value>
+  </data>
+  <data name="txtToEncrypt.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>6, 5, 6, 5</value>
+  </data>
+  <data name="txtToEncrypt.Multiline" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="txtToEncrypt.Size" type="System.Drawing.Size, System.Drawing">
+    <value>502, 192</value>
+  </data>
+  <data name="txtToEncrypt.TabIndex" type="System.Int32, mscorlib">
+    <value>10</value>
+  </data>
+  <data name="&gt;&gt;txtToEncrypt.Name" xml:space="preserve">
+    <value>txtToEncrypt</value>
+  </data>
+  <data name="&gt;&gt;txtToEncrypt.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;txtToEncrypt.Parent" xml:space="preserve">
+    <value>tabPage3</value>
+  </data>
+  <data name="&gt;&gt;txtToEncrypt.ZOrder" xml:space="preserve">
+    <value>8</value>
+  </data>
+  <data name="IblInitialText.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="IblInitialText.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Rockwell, 13pt</value>
+  </data>
+  <data name="IblInitialText.Location" type="System.Drawing.Point, System.Drawing">
+    <value>18, 70</value>
+  </data>
+  <data name="IblInitialText.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>6, 0, 6, 0</value>
+  </data>
+  <data name="IblInitialText.Size" type="System.Drawing.Size, System.Drawing">
+    <value>245, 25</value>
+  </data>
+  <data name="IblInitialText.TabIndex" type="System.Int32, mscorlib">
+    <value>4</value>
+  </data>
+  <data name="IblInitialText.Text" xml:space="preserve">
+    <value>Текст для зашифрования :</value>
+  </data>
+  <data name="&gt;&gt;IblInitialText.Name" xml:space="preserve">
+    <value>IblInitialText</value>
+  </data>
+  <data name="&gt;&gt;IblInitialText.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;IblInitialText.Parent" xml:space="preserve">
+    <value>tabPage3</value>
+  </data>
+  <data name="&gt;&gt;IblInitialText.ZOrder" xml:space="preserve">
+    <value>9</value>
   </data>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>

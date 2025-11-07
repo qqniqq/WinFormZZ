@@ -153,7 +153,8 @@
             this.cmbAlphabet.FormattingEnabled = true;
             this.cmbAlphabet.Items.AddRange(new object[] {
             resources.GetString("cmbAlphabet.Items"),
-            resources.GetString("cmbAlphabet.Items1")});
+            resources.GetString("cmbAlphabet.Items1"),
+            resources.GetString("cmbAlphabet.Items2")});
             this.cmbAlphabet.Name = "cmbAlphabet";
             // 
             // buttonSave
@@ -236,6 +237,7 @@
             this.tabPage4.ForeColor = System.Drawing.Color.DarkGreen;
             resources.ApplyResources(this.tabPage4, "tabPage4");
             this.tabPage4.Name = "tabPage4";
+            this.tabPage4.Click += new System.EventHandler(this.tabPage4_Click);
             // 
             // label1
             // 
@@ -294,7 +296,8 @@
             this.cmbAlphabetDecrypt.FormattingEnabled = true;
             this.cmbAlphabetDecrypt.Items.AddRange(new object[] {
             resources.GetString("cmbAlphabetDecrypt.Items"),
-            resources.GetString("cmbAlphabetDecrypt.Items1")});
+            resources.GetString("cmbAlphabetDecrypt.Items1"),
+            resources.GetString("cmbAlphabetDecrypt.Items2")});
             this.cmbAlphabetDecrypt.Name = "cmbAlphabetDecrypt";
             // 
             // btnUsePrevious

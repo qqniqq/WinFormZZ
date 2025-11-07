@@ -1,8 +1,4 @@
 ﻿using System;
-using System.IO;
-using System.Text.RegularExpressions;
-using System.Net;
-using System.Text;
 using System.Windows.Forms;
 
 namespace CaesarCipher
@@ -28,17 +24,17 @@ namespace CaesarCipher
         }
         private void CaesarCipher_Load(object sender, EventArgs e)
         {
-            string[] langs = { "Русский", "Английский" };
+            string[] langs = { "Русский", "Английский", "Цифры" };
 
             cmbAlphabet.Items.Clear();
             cmbAlphabet.Items.AddRange(langs);
             cmbAlphabet.SelectedIndex = 0;
-            cmbAlphabet.DropDownStyle = ComboBoxStyle.DropDownList;
+
 
             cmbAlphabetDecrypt.Items.Clear();
             cmbAlphabetDecrypt.Items.AddRange(langs);
             cmbAlphabetDecrypt.SelectedIndex = 0;
-            cmbAlphabetDecrypt.DropDownStyle = ComboBoxStyle.DropDownList;
+
 
             UpdateKeyCombo(cmbAlphabet, cmbKeyEncrypt);
             UpdateKeyCombo(cmbAlphabetDecrypt, cmbKeyDecrypt);
@@ -46,21 +42,25 @@ namespace CaesarCipher
             cmbAlphabet.SelectedIndexChanged += (s, ev) => UpdateKeyCombo(cmbAlphabet, cmbKeyEncrypt);
             cmbAlphabetDecrypt.SelectedIndexChanged += (s, ev) => UpdateKeyCombo(cmbAlphabetDecrypt, cmbKeyDecrypt);
 
-            cmbKeyEncrypt.DropDownStyle = ComboBoxStyle.DropDownList;
-            cmbKeyDecrypt.DropDownStyle = ComboBoxStyle.DropDownList;
-
-            txtEncryptedText.ReadOnly = true;
-            txtDecryptedText.ReadOnly = true;
 
             this.BeginInvoke((MethodInvoker)(() => txtToEncrypt.Focus()));
         }
         private void UpdateKeyCombo(ComboBox languageCombo, ComboBox keyCombo)
         {
             keyCombo.Items.Clear();
-            int max = (languageCombo.SelectedItem != null &&
-                       languageCombo.SelectedItem.ToString().Contains("Англ")) ? 26 : 33;
+
+            int max = 0;
+
+            if (languageCombo.SelectedItem.ToString().Contains("Англ"))
+                max = 26;
+            else if (languageCombo.SelectedItem.ToString().Contains("Рус"))
+                max = 33;
+            else if (languageCombo.SelectedItem.ToString().Contains("Цифры"))
+                max = 10;
+
             for (int i = 1; i <= max; i++)
                 keyCombo.Items.Add(i.ToString());
+
             keyCombo.SelectedIndex = 0;
         }
         private void IblKey_Click(object sender, EventArgs e)
@@ -93,39 +93,20 @@ namespace CaesarCipher
         }
         private AlphabetType GetSelectedAlphabet(ComboBox combo)
         {
-            return (combo.SelectedItem != null && combo.SelectedItem.ToString().Contains("Англ"))
-                ? AlphabetType.English
-                : AlphabetType.Russian;
+            string value = combo.SelectedItem.ToString();
+
+            if (value.Contains("Англ"))
+                return AlphabetType.English;
+            if (value.Contains("Цифры"))
+                return AlphabetType.Digits;
+
+            return AlphabetType.Russian;
         }
-        private bool ValidateInputs(TextBox textBox, ComboBox keyCombo, string actionName)
-        {
-            bool textEmpty = string.IsNullOrWhiteSpace(textBox.Text);
-            bool keyEmpty = (keyCombo.SelectedItem == null);
-            if (textEmpty && keyEmpty)
-            {
-                MessageBox.Show($"Сначала введите ключ и текст для {actionName}", "Ошибка",
-                    MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return false;
-            }
-            if (textEmpty)
-            {
-                MessageBox.Show($"Сначала введите текст для {actionName}", "Ошибка",
-                    MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return false;
-            }
-            if (keyEmpty)
-            {
-                MessageBox.Show("Сначала выберите ключ", "Ошибка",
-                    MessageBoxButtons.OK, MessageBoxIcon.Error);
-                keyCombo.Focus();
-                keyCombo.DroppedDown = true;
-                return false;
-            }
-            return true;
-        }
+
         private void EncryptAndShow(TextBox sourceText, ComboBox keyCombo, TextBox outputText, ComboBox alphabetCombo)
         {
-            if (!ValidateInputs(sourceText, keyCombo, "зашифровки")) return;
+            if (!InputValidator.ValidateText(sourceText.Text))
+                return;
 
             int key = int.Parse(keyCombo.SelectedItem.ToString());
             var alphabetType = GetSelectedAlphabet(alphabetCombo);
@@ -141,7 +122,8 @@ namespace CaesarCipher
         }
         private void DecryptAndShow(TextBox sourceText, ComboBox keyCombo, TextBox outputText, ComboBox alphabetCombo)
         {
-            if (!ValidateInputs(sourceText, keyCombo, "расшифровки")) return;
+            if (!InputValidator.ValidateText(sourceText.Text))
+                return;
 
             int key = int.Parse(keyCombo.SelectedItem.ToString());
             var alphabetType = GetSelectedAlphabet(alphabetCombo);
@@ -159,43 +141,23 @@ namespace CaesarCipher
         }
         private void buttonSave_Click(object sender, EventArgs e)
         {
-            if (string.IsNullOrEmpty(txtEncryptedText.Text))
-            {
-                MessageBox.Show("Нет данных для сохранения.", "Ошибка",
-                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+            if (!InputValidator.ValidateText(txtEncryptedText.Text))
                 return;
-            }
-            SaveFileDialog saveFileDialog = new SaveFileDialog
+
+            SaveFileDialog dialog = new SaveFileDialog
             {
-                Filter = "HTML files (*.html)|*.html|Text files (*.txt)|*.txt|All files (*.*)|*.*",
+                Filter = "HTML files (*.html)|*.html|Text files (*.txt)|*.txt",
                 Title = "Сохранить зашифрованный текст"
             };
-            if (saveFileDialog.ShowDialog() == DialogResult.OK)
+
+            if (dialog.ShowDialog() == DialogResult.OK)
             {
-                string alphabet = (cmbAlphabet.SelectedItem != null) ? cmbAlphabet.SelectedItem.ToString() : "Русский";
-                string key = (cmbKeyEncrypt.SelectedItem != null) ? cmbKeyEncrypt.SelectedItem.ToString() : "1";
-                string text = txtEncryptedText.Text;
-                if (Path.GetExtension(saveFileDialog.FileName).ToLower() == ".html")
-                {
-                    string htmlContent = $@"
-            <html>
-            <head><meta charset='UTF-8'><title>Результат шифрования</title></head>
-            <body>
-                <h2>Результат шифрования:</h2>
-                <p><b>ALPHABET:</b> {alphabet}</p>
-                <p><b>KEY:</b> {key}</p>
-                <p><b>TEXT:</b> {text}</p>
-            </body>
-            </html>";
-                    File.WriteAllText(saveFileDialog.FileName, htmlContent, Encoding.UTF8);
-                }
-                else
-                {
-                    string content = $"Результат шифрования:\nKEY={key}\nALPHABET={alphabet}\nTEXT={text}";
-                    File.WriteAllText(saveFileDialog.FileName, content, Encoding.UTF8);
-                }
-                MessageBox.Show("Результат успешно сохранён!", "Готово",
-                    MessageBoxButtons.OK, MessageBoxIcon.Information);
+                FileManager.SaveFile(
+                    dialog.FileName,
+                    txtEncryptedText.Text,
+                    cmbAlphabet.SelectedItem.ToString(),
+                    cmbKeyEncrypt.SelectedItem.ToString()
+                );
             }
         }
         private void materialLabel3_Click(object sender, EventArgs e)
@@ -211,84 +173,29 @@ namespace CaesarCipher
         {
             OpenFileDialog openFileDialog = new OpenFileDialog
             {
-                Filter = "HTML files (*.html)|*.html|Text files (*.txt)|*.txt|All files (*.*)|*.*",
+                Filter = "HTML files (*.html)|*.html|Text files (*.txt)|*.txt",
                 Title = "Выберите файл для расшифровки"
             };
-            if (openFileDialog.ShowDialog() != DialogResult.OK) return;
-            string key = "1";
-            string alphabet = "Русский";
-            string encryptedText = "";
-            string extension = Path.GetExtension(openFileDialog.FileName).ToLower();
-            if (extension == ".html")
-            {
-                string html = File.ReadAllText(openFileDialog.FileName, Encoding.UTF8);
-                // ищем ALPHABET
-                var mAlphabet = Regex.Match(html, @"<b>\s*ALPHABET:\s*</b>\s*(.+?)</p>", RegexOptions.IgnoreCase | RegexOptions.Singleline);
-                if (mAlphabet.Success)
-                    alphabet = WebUtility.HtmlDecode(mAlphabet.Groups[1].Value).Trim();
-                // ищем KEY
-                var mKey = Regex.Match(html, @"<b>\s*KEY:\s*</b>\s*(.+?)</p>", RegexOptions.IgnoreCase | RegexOptions.Singleline);
-                if (mKey.Success)
-                    key = WebUtility.HtmlDecode(mKey.Groups[1].Value).Trim();
-                // ищем TEXT внутри <pre>...</pre>
-                var mText = Regex.Match(html, @"<pre>(.*?)</pre>", RegexOptions.Singleline | RegexOptions.IgnoreCase);
-                if (mText.Success)
-                    encryptedText = WebUtility.HtmlDecode(mText.Groups[1].Value);
-                else
-                {
-                    var mText2 = Regex.Match(html, @"<b>\s*TEXT:\s*</b>\s*(.+?)</p>", RegexOptions.Singleline | RegexOptions.IgnoreCase);
-                    if (mText2.Success)
-                        encryptedText = WebUtility.HtmlDecode(mText2.Groups[1].Value);
-                }
-            }
-            else 
-            {
-                string[] lines = File.ReadAllLines(openFileDialog.FileName, Encoding.UTF8);
-                foreach (string line in lines)
-                {
-                    if (line.StartsWith("KEY="))
-                        key = line.Substring(4).Trim();
-                    else if (line.StartsWith("ALPHABET="))
-                        alphabet = line.Substring(9).Trim();
-                    else if (line.StartsWith("TEXT="))
-                        encryptedText = line.Substring(5);
-                }
-            }
-            if (alphabet.IndexOf("Англ", StringComparison.OrdinalIgnoreCase) >= 0 ||
-                alphabet.IndexOf("English", StringComparison.OrdinalIgnoreCase) >= 0)
-            {
-                cmbAlphabetDecrypt.SelectedItem = "Английский";
-            }
-            else
-            {
-                cmbAlphabetDecrypt.SelectedItem = "Русский";
-            }
-            // гарантируем, что список ключей обновлён (на случай, если событие не сработало)
-            UpdateKeyCombo(cmbAlphabetDecrypt, cmbKeyDecrypt);
-            // распарсить ключ как число и выбрать его в ComboBox
-            int parsedKey;
-            // извлечём первое число из строки (если там есть лишние символы)
-            var numMatch = Regex.Match(key, @"\d+");
-            if (numMatch.Success && int.TryParse(numMatch.Value, out parsedKey))
-            {
-                string keyStr = parsedKey.ToString();
-                int keyIndex = cmbKeyDecrypt.Items.IndexOf(keyStr);
-                if (keyIndex >= 0)
-                    cmbKeyDecrypt.SelectedIndex = keyIndex;
-                else
-                {
-                    // если вдруг не нашлось (неожиданно), оставляем значение 0 и сообщим
-                    cmbKeyDecrypt.SelectedIndex = 0;
-                }
-            }
-            else
-            {
-                // неверный формат ключа — ставим 0
-                cmbKeyDecrypt.SelectedIndex = 0;
-            }
-            // Подставляем текст и выполняем расшифровку
-            txtTextToDecrypt.Text = encryptedText ?? "";
-            DecryptAndShow(txtTextToDecrypt, cmbKeyDecrypt, txtDecryptedText, cmbAlphabetDecrypt);
+
+            if (openFileDialog.ShowDialog() != DialogResult.OK)
+                return;
+
+            FileData data = FileManager.LoadFile(openFileDialog.FileName);
+
+            if (!data.IsValid)
+                return;
+
+            txtTextToDecrypt.Text = data.Text;
+
+            cmbAlphabetDecrypt.SelectedItem = data.Alphabet.Contains("Англ")
+                ? "Английский"
+                : data.Alphabet.Contains("Цифры")
+                    ? "Цифры"
+                    : "Русский";
+
+            cmbKeyDecrypt.SelectedItem = data.Key;
+
+            btnDecipher.PerformClick();
         }
         private void btnUsePrevious_Click(object sender, EventArgs e)
         {
@@ -298,15 +205,17 @@ namespace CaesarCipher
                     MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
+
             txtTextToDecrypt.Text = AppData.LastEncryptedText;
-            cmbAlphabetDecrypt.SelectedItem = AppData.LastAlphabet == AlphabetType.English ? "Английский" : "Русский";
+            cmbAlphabetDecrypt.SelectedItem =
+                AppData.LastAlphabet == AlphabetType.English ? "Английский" :
+                AppData.LastAlphabet == AlphabetType.Digits ? "Цифры" :
+                "Русский";
+
             UpdateKeyCombo(cmbAlphabetDecrypt, cmbKeyDecrypt);
-            int prevKeyIndex = cmbKeyDecrypt.Items.IndexOf(AppData.LastKey.ToString());
-            if (prevKeyIndex >= 0)
-                cmbKeyDecrypt.SelectedIndex = prevKeyIndex;
-            else
-                cmbKeyDecrypt.SelectedIndex = 0;
-            DecryptAndShow(txtTextToDecrypt, cmbKeyDecrypt, txtDecryptedText, cmbAlphabetDecrypt);
+            cmbKeyDecrypt.SelectedItem = AppData.LastKey.ToString();
+
+            btnDecipher.PerformClick();
         }
         private void cmbKeyEncrypt_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -346,6 +255,11 @@ namespace CaesarCipher
             {
                 this.BeginInvoke((MethodInvoker)(() => txtTextToDecrypt.Focus()));
             }
+        }
+
+        private void tabPage4_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

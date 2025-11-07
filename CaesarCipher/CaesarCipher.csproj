@@ -53,6 +53,8 @@
     <Compile Include="CaesarCipher.Designer.cs">
       <DependentUpon>CaesarCipher.cs</DependentUpon>
     </Compile>
+    <Compile Include="FileManager.cs" />
+    <Compile Include="InputValidator.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="CaesarCipher.resx">
