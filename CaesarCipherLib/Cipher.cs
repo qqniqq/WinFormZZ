@@ -1,6 +1,5 @@
 ﻿using System.Linq;
 using System.Text;
-using CaesarCipher;
 
 namespace CaesarCipher
 {

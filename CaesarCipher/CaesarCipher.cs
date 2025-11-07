@@ -25,23 +25,19 @@ namespace CaesarCipher
         private void CaesarCipher_Load(object sender, EventArgs e)
         {
             string[] langs = { "Русский", "Английский", "Цифры" };
-
             cmbAlphabet.Items.Clear();
             cmbAlphabet.Items.AddRange(langs);
             cmbAlphabet.SelectedIndex = 0;
 
-
             cmbAlphabetDecrypt.Items.Clear();
             cmbAlphabetDecrypt.Items.AddRange(langs);
             cmbAlphabetDecrypt.SelectedIndex = 0;
-
 
             UpdateKeyCombo(cmbAlphabet, cmbKeyEncrypt);
             UpdateKeyCombo(cmbAlphabetDecrypt, cmbKeyDecrypt);
 
             cmbAlphabet.SelectedIndexChanged += (s, ev) => UpdateKeyCombo(cmbAlphabet, cmbKeyEncrypt);
             cmbAlphabetDecrypt.SelectedIndexChanged += (s, ev) => UpdateKeyCombo(cmbAlphabetDecrypt, cmbKeyDecrypt);
-
 
             this.BeginInvoke((MethodInvoker)(() => txtToEncrypt.Focus()));
         }
@@ -94,40 +90,31 @@ namespace CaesarCipher
         private AlphabetType GetSelectedAlphabet(ComboBox combo)
         {
             string value = combo.SelectedItem.ToString();
-
             if (value.Contains("Англ"))
                 return AlphabetType.English;
             if (value.Contains("Цифры"))
                 return AlphabetType.Digits;
-
             return AlphabetType.Russian;
         }
-
         private void EncryptAndShow(TextBox sourceText, ComboBox keyCombo, TextBox outputText, ComboBox alphabetCombo)
         {
             if (!InputValidator.ValidateText(sourceText.Text))
                 return;
-
             int key = int.Parse(keyCombo.SelectedItem.ToString());
             var alphabetType = GetSelectedAlphabet(alphabetCombo);
-
             output = Cipher.Encrypt(sourceText.Text, key, alphabetType);
             outputText.Text = output;
-
             AppData.LastEncryptedText = output;
             AppData.LastKey = key;
             AppData.LastAlphabet = alphabetType;
-
             buttonSave.Enabled = true;
         }
         private void DecryptAndShow(TextBox sourceText, ComboBox keyCombo, TextBox outputText, ComboBox alphabetCombo)
         {
             if (!InputValidator.ValidateText(sourceText.Text))
                 return;
-
             int key = int.Parse(keyCombo.SelectedItem.ToString());
             var alphabetType = GetSelectedAlphabet(alphabetCombo);
-
             output = Cipher.Decrypt(sourceText.Text, key, alphabetType);
             outputText.Text = output;
         }
@@ -143,13 +130,11 @@ namespace CaesarCipher
         {
             if (!InputValidator.ValidateText(txtEncryptedText.Text))
                 return;
-
             SaveFileDialog dialog = new SaveFileDialog
             {
                 Filter = "HTML files (*.html)|*.html|Text files (*.txt)|*.txt",
                 Title = "Сохранить зашифрованный текст"
             };
-
             if (dialog.ShowDialog() == DialogResult.OK)
             {
                 FileManager.SaveFile(
@@ -176,25 +161,18 @@ namespace CaesarCipher
                 Filter = "HTML files (*.html)|*.html|Text files (*.txt)|*.txt",
                 Title = "Выберите файл для расшифровки"
             };
-
             if (openFileDialog.ShowDialog() != DialogResult.OK)
                 return;
-
             FileData data = FileManager.LoadFile(openFileDialog.FileName);
-
             if (!data.IsValid)
                 return;
-
             txtTextToDecrypt.Text = data.Text;
-
             cmbAlphabetDecrypt.SelectedItem = data.Alphabet.Contains("Англ")
                 ? "Английский"
                 : data.Alphabet.Contains("Цифры")
                     ? "Цифры"
                     : "Русский";
-
             cmbKeyDecrypt.SelectedItem = data.Key;
-
             btnDecipher.PerformClick();
         }
         private void btnUsePrevious_Click(object sender, EventArgs e)
@@ -205,16 +183,13 @@ namespace CaesarCipher
                     MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
-
             txtTextToDecrypt.Text = AppData.LastEncryptedText;
             cmbAlphabetDecrypt.SelectedItem =
                 AppData.LastAlphabet == AlphabetType.English ? "Английский" :
                 AppData.LastAlphabet == AlphabetType.Digits ? "Цифры" :
                 "Русский";
-
             UpdateKeyCombo(cmbAlphabetDecrypt, cmbKeyDecrypt);
             cmbKeyDecrypt.SelectedItem = AppData.LastKey.ToString();
-
             btnDecipher.PerformClick();
         }
         private void cmbKeyEncrypt_SelectedIndexChanged(object sender, EventArgs e)
@@ -256,7 +231,6 @@ namespace CaesarCipher
                 this.BeginInvoke((MethodInvoker)(() => txtTextToDecrypt.Focus()));
             }
         }
-
         private void tabPage4_Click(object sender, EventArgs e)
         {
 
