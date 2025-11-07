@@ -2,7 +2,6 @@
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Net;
-
 namespace CaesarCipher
 {
     public class FileData
@@ -12,7 +11,6 @@ namespace CaesarCipher
         public string Key { get; set; }
         public bool IsValid { get; set; }
     }
-
     public static class FileManager
     {
         public static void SaveFile(string path, string text, string alphabet, string key)
